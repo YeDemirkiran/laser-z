@@ -3,12 +3,15 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 1f;
+    public float steerSpeed = 1f;
 
     void Update()
     {
         Vector3 pos = transform.position;
 
         pos.z += speed * Time.deltaTime;
+
+        pos.x += Input.GetAxisRaw("Horizontal") * steerSpeed * Time.deltaTime;
 
         transform.position = pos;
     }
