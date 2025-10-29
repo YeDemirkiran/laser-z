@@ -1,0 +1,16 @@
+using UnityEngine;
+using UnityEngine.UI;
+
+public class EnemyHealtBar : MonoBehaviour
+{
+    public EnemyAI enemyAI;
+    private Slider slider;
+    void Start()
+    {
+        slider = GetComponent<Slider>();
+    }
+    void Update()
+    {
+        slider.value = enemyAI.health / 100f;
+    }
+}
