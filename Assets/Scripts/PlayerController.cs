@@ -4,6 +4,7 @@ public class PlayerController : MonoBehaviour
 {
     public float speed = 1f;
     public float steerSpeed = 1f;
+    public float health = 100f;
 
     void Update()
     {
