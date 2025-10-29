@@ -3,6 +3,7 @@ using UnityEngine;
 public class GunController : MonoBehaviour
 {
     public float fireRate = 1f;
+    public float maxFireRate = 4f;
     public float bulletSpeed = 1000f;
     public float gunRange = 75f;
     public Transform crosshair;
@@ -18,6 +19,9 @@ public class GunController : MonoBehaviour
 
     void Update()
     {
+        if (fireRate > maxFireRate)
+            fireRate = maxFireRate;
+
         if (timer >= 1f / fireRate)
         {
             bool isHit = Physics.Raycast(crosshair.position, crosshair.forward, gunRange, bulletLayerMask);
