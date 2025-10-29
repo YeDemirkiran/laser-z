@@ -18,9 +18,4 @@ public class PlayerController : MonoBehaviour
 
         transform.position = pos;
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log(other.name);
-    }
 }
