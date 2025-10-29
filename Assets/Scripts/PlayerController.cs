@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (health <= 0f)
+            Destroy(gameObject);
         Vector3 pos = transform.position;
 
         pos.z += speed * Time.deltaTime;
