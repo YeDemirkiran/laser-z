@@ -1275,6 +1275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   fireRate: 2
+  maxFireRate: 4
   bulletSpeed: 2500
   gunRange: 50
   crosshair: {fileID: 258526588}
