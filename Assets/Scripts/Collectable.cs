@@ -14,6 +14,7 @@ public class Collectable : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.LogWarning("Collectable hit: " + other.name);
         if (!disabled && other.gameObject.CompareTag("Player"))
         {
             PlayerController player = other.attachedRigidbody.GetComponent<PlayerController>();
@@ -24,6 +25,7 @@ public class Collectable : MonoBehaviour
         {
             healthGive += 1f;
             text.text = $"{healthGive.ToString()}";
+            Destroy(other.gameObject);
         }
     }
 }

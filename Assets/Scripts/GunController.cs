@@ -4,17 +4,24 @@ public class GunController : MonoBehaviour
 {
     public float fireRate = 1f;
     public float bulletSpeed = 1000f;
+    public float gunRange = 75f;
     public Transform crosshair;
     public GameObject bulletPrefab;
     public LayerMask bulletLayerMask;
 
     private float timer = 0f;
 
+    private void Start()
+    {
+        timer = 1f / fireRate;
+    }
+
     void Update()
     {
-        if (timer > 1f / fireRate)
+        if (timer >= 1f / fireRate)
         {
-            bool isHit = Physics.Raycast(crosshair.position, crosshair.forward, 50f, bulletLayerMask);
+            bool isHit = Physics.Raycast(crosshair.position, crosshair.forward, gunRange, bulletLayerMask);
+
             if (isHit)
             {
                 GameObject bullet = Instantiate(bulletPrefab);
@@ -24,8 +31,8 @@ public class GunController : MonoBehaviour
 
                 Rigidbody rb = bullet.GetComponent<Rigidbody>();
 
-                rb.AddForce(new Vector3(0f, 0f, bulletSpeed));
-                Destroy(bullet, 1.5f);
+                rb.AddForce(crosshair.forward * bulletSpeed);
+                Destroy(bullet, 5f);
 
                 timer = 0f;
             }        

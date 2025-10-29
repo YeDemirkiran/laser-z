@@ -6,29 +6,54 @@ public class LevelManager : MonoBehaviour
     public Transform collectables;
     public float speed = 10f;
     public float zombieSpawnRate = 2f;
+    public float collectableSpawnRate = 7f;
 
     public GameObject zombiePrefab;
+    public GameObject collectablePrefab;
 
     public Transform[] seritler;
 
     float zombieSpawnTimer = 0f;
+    float collectableSpawnTimer = 0f;
 
-    int previousDecision = -5;
+    int previousZombieDecision;
 
     void Update()
     {
+        SpawnCollectable();
         SpawnZombie();
         MoveChildren();
+    }
+
+    void SpawnCollectable()
+    {
+        if (collectableSpawnTimer > collectableSpawnRate)
+        {
+            int decision = Random.Range(0, 3);
+
+            for (int i = 0; i <= decision; i++)
+            {
+                GameObject collectable = Instantiate(collectablePrefab);
+                Destroy(collectable, 10f);
+                collectable.transform.position = seritler[i].position;
+                collectable.transform.SetParent(collectables);
+                collectableSpawnTimer = 0f;
+            }       
+        }
+        else
+        {
+            collectableSpawnTimer += Time.deltaTime;
+        }
     }
 
     void SpawnZombie()
     {
         if (zombieSpawnTimer > zombieSpawnRate)
         {
-            int decision = previousDecision;
-            while (previousDecision == decision)
+            int decision = previousZombieDecision;
+            while (previousZombieDecision == decision)
                 decision = Random.Range(0, 3);
-            previousDecision = decision;
+            previousZombieDecision = decision;
 
             GameObject zombie = Instantiate(zombiePrefab);
             Destroy(zombie, 10f);
