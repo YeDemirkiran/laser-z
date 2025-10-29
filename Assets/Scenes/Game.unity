@@ -1516,7 +1516,7 @@ MonoBehaviour:
   zombieSpawnRate: 10000
   collectableSpawnRate: 5
   zombiePrefab: {fileID: 1082358624496970478, guid: dceabe5763e514140b0e1903879967b6, type: 3}
-  collectablePrefab: {fileID: 6664337989057018485, guid: db0358c5854134f468d317db2062ef65, type: 3}
+  collectablePrefab: {fileID: 6664337989057018485, guid: 732522289ebb61c4a8a045eb3c489c40, type: 3}
   seritler:
   - {fileID: 1801319802}
   - {fileID: 1744060073}

@@ -9,7 +9,8 @@ public class PlayerController : MonoBehaviour
     {
         if (health <= 0f)
             Destroy(gameObject);
-
+        else if (health > 100f)
+            health = 100f;
         Vector3 pos = transform.position;
         pos.x += Input.GetAxisRaw("Horizontal") * steerSpeed * Time.deltaTime;
         transform.position = pos;
