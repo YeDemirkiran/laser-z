@@ -9,18 +9,8 @@ public class Collectable : MonoBehaviour
 
     private void Start()
     {
-        text.text = $"{(healthGive < 0 ? '-' : '+')}{healthGive.ToString()}";
+        text.text = $"{healthGive.ToString()}";
     }
-
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    if (collision.gameObject.CompareTag("Player"))
-    //    {
-    //        Debug.Log("Hit player");
-    //        PlayerController player = collision.gameObject.GetComponent<PlayerController>();
-    //        player.health += healthGive;
-    //    }
-    //}
 
     private void OnTriggerEnter(Collider other)
     {
@@ -29,6 +19,11 @@ public class Collectable : MonoBehaviour
             PlayerController player = other.attachedRigidbody.GetComponent<PlayerController>();
             player.health += healthGive;
             disabled = true;
+        }
+        else if (!disabled && other.gameObject.CompareTag("Bullet"))
+        {
+            healthGive += 1f;
+            text.text = $"{healthGive.ToString()}";
         }
     }
 }

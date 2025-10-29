@@ -2535,7 +2535,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ab772c3a1b1fc5469ec01ebe0c0959a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  healthGive: 25
+  healthGive: -5
   text: {fileID: 432108613}
 --- !u!1 &1578168747
 GameObject:
