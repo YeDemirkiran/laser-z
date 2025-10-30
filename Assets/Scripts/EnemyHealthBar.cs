@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemyHealtBar : MonoBehaviour
+public class EnemyHealthBar : MonoBehaviour
 {
     public EnemyAI enemyAI;
     private Slider slider;
