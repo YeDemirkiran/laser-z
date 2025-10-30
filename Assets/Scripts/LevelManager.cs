@@ -5,6 +5,7 @@ public class LevelManager : MonoBehaviour
     public Transform enemies;
     public Transform collectables;
     public float speed = 10f;
+    public float scoreIncreaseSpeed = 1f;
     public float zombieSpawnRate = 2f;
     public float collectableSpawnRate = 7f;
 
@@ -18,11 +19,19 @@ public class LevelManager : MonoBehaviour
 
     int previousZombieDecision;
 
+    public float Score { get; private set; } = 0f;
+
     void Update()
     {
         SpawnCollectable();
         SpawnZombie();
         MoveChildren();
+        UpdateScore();
+    }
+
+    void UpdateScore()
+    {
+        Score += scoreIncreaseSpeed * Time.deltaTime;
     }
 
     void SpawnCollectable()
