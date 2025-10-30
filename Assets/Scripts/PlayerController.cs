@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         if (health <= 0f)
-            Destroy(gameObject);
+            Death();
         else if (health > 100f)
             health = 100f;
 
@@ -42,5 +42,11 @@ public class PlayerController : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         input = context.ReadValue<float>();
+    }
+
+    void Death()
+    {
+        Destroy(gameObject);
+        GameManager.Instance.ReloadCurrentScene(1f);
     }
 }
