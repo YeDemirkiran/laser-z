@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Health & Death")]
     [SerializeField] float health = 100f;
     public float Health 
     { 
@@ -20,13 +21,12 @@ public class PlayerController : MonoBehaviour
                 Die();
         }
     }
-
-    public InputActionReference moveAction;
-
-    public float steerSpeed = 1f;
-    float input = 0f;
-
     public UnityEvent OnDeath;
+
+    [Header("Movement")]
+    [SerializeField] InputActionReference moveAction;
+    [SerializeField] float steerSpeed = 1f;
+    float input = 0f;
 
     void OnEnable()
     {
@@ -44,28 +44,22 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (health <= 0f)
-            Die();
-        else if (health > 100f)
-            health = 100f;
-
-        Vector3 pos = transform.position;
-        if (input > 1f)
-            input = 1f;
-        else if (input < -1f)
-            input = -1f;
-        pos.x += input * steerSpeed * Time.deltaTime;
-        transform.position = pos;
-    }
-
-    public void AddHealth(float health)
-    {
-        Health += health;
+        Move();
     }
 
     void OnMove(InputAction.CallbackContext context)
     {
         input = context.ReadValue<float>();
+    }
+
+    void Move()
+    {
+        float horizontal = Mathf.Clamp(input, -1f, 1f) * steerSpeed * Time.deltaTime;
+        transform.Translate(Vector3.right * horizontal);
+    }
+    public void AddHealth(float health)
+    {
+        Health += health;
     }
 
     void Die()

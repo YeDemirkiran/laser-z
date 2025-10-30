@@ -16,10 +16,7 @@ public class Collectable : MonoBehaviour
 
     private void Start()
     {
-        if (type == Type.Health)
-            text.text = $"{healthGive.ToString()}";
-        else if (type == Type.Upgrade)
-            text.text = $"{upgradeUnlock.ToString()}";
+        SetText();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -41,16 +38,23 @@ public class Collectable : MonoBehaviour
             if (type == Type.Health)
             {
                 healthGive += 1f;
-                text.text = $"{healthGive.ToString()}";
             }
             else if (type == Type.Upgrade && upgradeUnlock > 0)
             {
                 upgradeUnlock -= 1;
-                text.text = $"{upgradeUnlock.ToString()}";
                 if (upgradeUnlock == 0)
                     flag = true;
             }
+            SetText();
             Destroy(other.gameObject);
         }
+    }
+
+    void SetText()
+    {
+        if (type == Type.Health)
+            text.text = healthGive.ToString();
+        else if (type == Type.Upgrade)
+            text.text = upgradeUnlock.ToString();
     }
 }

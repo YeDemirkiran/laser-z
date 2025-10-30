@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     public void ReloadCurrentScene(float delay = 0f)
     {
         if (delay > 0f)
-            Invoke("ReloadCurrentScene", delay);
+            Invoke(nameof(ReloadCurrentScene), delay);
         else
             ReloadCurrentScene();
     }

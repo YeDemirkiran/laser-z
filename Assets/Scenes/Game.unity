@@ -593,7 +593,7 @@ PositionConstraint:
   serializedVersion: 2
   m_Weight: 1
   m_TranslationAtRest: {x: 0.072, y: 7.26, z: -24.32}
-  m_TranslationOffset: {x: 0.132, y: 5.7300005, z: -4.1399994}
+  m_TranslationOffset: {x: 0.072, y: 5.7300005, z: -4.3199997}
   m_AffectTranslationX: 0
   m_AffectTranslationY: 0
   m_AffectTranslationZ: 1
@@ -1160,8 +1160,8 @@ Transform:
   m_GameObject: {fileID: 917356915}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.06, y: 1.53, z: -20.18}
-  m_LocalScale: {x: 1.5046, y: 1.5046, z: 1.5046}
+  m_LocalPosition: {x: 0, y: 1.53, z: -20}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 186266188}
@@ -1181,8 +1181,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   health: 100
-  moveAction: {fileID: 4472965779734053969, guid: 19795d194cd5c394492f9c6cb13393c6, type: 3}
-  steerSpeed: 10
   OnDeath:
     m_PersistentCalls:
       m_Calls:
@@ -1198,6 +1196,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 365388302}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: ReloadCurrentScene
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  moveAction: {fileID: 4472965779734053969, guid: 19795d194cd5c394492f9c6cb13393c6, type: 3}
+  steerSpeed: 10
 --- !u!54 &917356921
 Rigidbody:
   m_ObjectHideFlags: 0

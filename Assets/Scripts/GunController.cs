@@ -30,8 +30,7 @@ public class GunController : MonoBehaviour
             {
                 GameObject bullet = Instantiate(bulletPrefab);
 
-                bullet.transform.position = crosshair.transform.position;
-                bullet.transform.rotation = crosshair.transform.rotation;
+                bullet.transform.SetPositionAndRotation(crosshair.transform.position, crosshair.transform.rotation);
 
                 Rigidbody rb = bullet.GetComponent<Rigidbody>();
 
