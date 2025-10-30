@@ -27,8 +27,8 @@ public class EnemyAI : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Player"))
         {
-            PlayerController player = collision.gameObject.GetComponent<PlayerController>();  
-            player.health -= 25f;
+            PlayerController player = collision.gameObject.GetComponent<PlayerController>();
+            player.AddHealth(-25f);
         }
     }
 }

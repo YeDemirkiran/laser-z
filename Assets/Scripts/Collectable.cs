@@ -31,7 +31,7 @@ public class Collectable : MonoBehaviour
         {
             PlayerController player = other.attachedRigidbody.GetComponent<PlayerController>();
             if (type == Type.Health)
-                player.health += healthGive;
+                player.AddHealth(healthGive);
             else if (type == Type.Upgrade && flag == true)
                 player.GetComponentInChildren<GunController>().fireRate += 1;
             disabled = true;

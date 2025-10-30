@@ -1,22 +1,41 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public float steerSpeed = 1f;
-    public float health = 100f;
+    [SerializeField] float health = 100f;
+    public float Health 
+    { 
+        get 
+        { 
+            return health; 
+        } 
+
+        private set
+        {
+            value = Mathf.Clamp(value, 0f, 100f);
+            health = value;
+            if (health <= 0f)
+                Die();
+        }
+    }
+
     public InputActionReference moveAction;
 
+    public float steerSpeed = 1f;
     float input = 0f;
 
-    private void OnEnable()
+    public UnityEvent OnDeath;
+
+    void OnEnable()
     {
         moveAction.action.Enable();
         moveAction.action.performed += OnMove;
         moveAction.action.canceled += OnMove;
     }
 
-    private void OnDisable()
+    void OnDisable()
     {
         moveAction.action.Disable();
         moveAction.action.performed -= OnMove;
@@ -26,7 +45,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         if (health <= 0f)
-            Death();
+            Die();
         else if (health > 100f)
             health = 100f;
 
@@ -39,14 +58,18 @@ public class PlayerController : MonoBehaviour
         transform.position = pos;
     }
 
-    public void OnMove(InputAction.CallbackContext context)
+    public void AddHealth(float health)
+    {
+        Health += health;
+    }
+
+    void OnMove(InputAction.CallbackContext context)
     {
         input = context.ReadValue<float>();
     }
 
-    void Death()
+    void Die()
     {
-        Destroy(gameObject);
-        GameManager.Instance.ReloadCurrentScene(1f);
+        OnDeath?.Invoke();
     }
 }
