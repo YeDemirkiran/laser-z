@@ -39,6 +39,8 @@ public class GameManager : MonoBehaviour
         }
 
         Instance = this;
+        dryRun = true;
+        CurrentGameState = m_GameState;
     }
 
     public void ReloadCurrentScene(float delay = 0f)
