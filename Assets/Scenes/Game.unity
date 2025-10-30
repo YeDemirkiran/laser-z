@@ -903,6 +903,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b28821b0ca70a7e4594234fbc0ac2a9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  m_GameState: 0
+  OnPauseEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1361428253}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: EnablePauseMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnResumeEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1361428253}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: EnableGameHUD
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &365388303
 Transform:
   m_ObjectHideFlags: 0
@@ -2248,6 +2279,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 365388302}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: PauseGameDry
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   moveAction: {fileID: 4472965779734053969, guid: 19795d194cd5c394492f9c6cb13393c6, type: 3}
   steerSpeed: 10
 --- !u!54 &917356921
@@ -3580,7 +3623,7 @@ GameObject:
   - component: {fileID: 1644236936}
   - component: {fileID: 1644236935}
   m_Layer: 5
-  m_Name: Pause
+  m_Name: Pause Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3652,7 +3695,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1361428253}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: EnablePauseMenu
+        m_MethodName: PauseGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3891,7 +3934,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1361428253}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: EnableGameHUD
+        m_MethodName: Resume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

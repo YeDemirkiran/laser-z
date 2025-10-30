@@ -29,6 +29,16 @@ public class UIManager : MonoBehaviour
         onDeathMenuActivate?.Invoke();
     }
 
+    public void PauseGame()
+    {
+        GameManager.Instance.PauseGame();
+    }
+
+    public void Resume()
+    {
+        GameManager.Instance.ResumeGame();
+    }
+
     public void RestartLevel()
     {
         GameManager.Instance.ReloadCurrentScene();
