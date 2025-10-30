@@ -10,7 +10,7 @@
                     "name": "Move",
                     "type": "Value",
                     "id": "2a534ccf-3f75-4848-bf0a-f85b4a20a463",
-                    "expectedControlType": "Vector2",
+                    "expectedControlType": "Analog",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -29,7 +29,7 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "negative",
+                    "name": "Negative",
                     "id": "6701b6c0-90f3-41cf-aef8-a25a2b5b3d4f",
                     "path": "<Keyboard>/a",
                     "interactions": "",
@@ -40,7 +40,7 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "positive",
+                    "name": "Positive",
                     "id": "cf8268e8-c202-4481-af7f-e60625c4954e",
                     "path": "<Keyboard>/d",
                     "interactions": "",
