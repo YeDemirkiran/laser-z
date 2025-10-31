@@ -27,6 +27,12 @@ public class LevelManager : MonoBehaviour
 
     public float Score { get; private set; } = 0f;
 
+    private void Start()
+    {
+        zombieSpawnTimer = zombieSpawnRate;
+        collectableSpawnTimer = collectableSpawnRate / 2f;
+    }
+
     void Update()
     {
         if (!levelRunning)

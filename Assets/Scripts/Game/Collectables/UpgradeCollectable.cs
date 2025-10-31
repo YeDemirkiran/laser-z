@@ -5,6 +5,7 @@ public class UpgradeCollectable : MonoBehaviour
 {
     [SerializeField] TMP_Text text;
     [SerializeField] int m_UpgradeUnlock = 25;
+    public float fireRateIncrease;
 
     int UpgradeUnlock
     {
@@ -44,7 +45,7 @@ public class UpgradeCollectable : MonoBehaviour
             if (gun == null)
                 return;
 
-            gun.fireRate += 1;
+            gun.fireRate += fireRateIncrease;
             disabled = true;
         }
         else if (other.gameObject.CompareTag("Bullet"))

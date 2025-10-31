@@ -3342,7 +3342,7 @@ Transform:
   m_GameObject: {fileID: 1215067129}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 29.3}
+  m_LocalPosition: {x: 0, y: 0, z: 77.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4169,11 +4169,11 @@ MonoBehaviour:
   - {fileID: 776864149}
   zombiePrefab: {fileID: 1082358624496970478, guid: dceabe5763e514140b0e1903879967b6, type: 3}
   collectablePrefab: {fileID: 6664337989057018485, guid: 732522289ebb61c4a8a045eb3c489c40, type: 3}
-  zombieSpawnRate: 1
-  collectableSpawnRate: 7
+  zombieSpawnRate: 1.5
+  collectableSpawnRate: 9
   startingSpeed: 10
   maxSpeed: 40
-  acceleration: 0.5
+  acceleration: 0.25
   scoreIncreaseSpeed: 1
 --- !u!1 &1603576313
 GameObject:
