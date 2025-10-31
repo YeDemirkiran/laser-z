@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     public UnityEvent OnPauseEvent;
     public UnityEvent OnResumeEvent;
 
-    bool dryRun = false;
+    //bool dryRun = false;
 
     private void Awake()
     {
@@ -39,8 +39,8 @@ public class GameManager : MonoBehaviour
         }
 
         Instance = this;
-        dryRun = true;
-        CurrentGameState = m_GameState;
+        //dryRun = true;
+        //CurrentGameState = m_GameState;
     }
 
     public void ReloadCurrentScene(float delay = 0f)
@@ -53,7 +53,6 @@ public class GameManager : MonoBehaviour
 
     void ReloadCurrentScene()
     {
-        ResumeGameDry();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
@@ -62,37 +61,39 @@ public class GameManager : MonoBehaviour
         CurrentGameState = GameState.Paused;
     }
 
-    public void PauseGameDry()
-    {
-        dryRun = true;
-        PauseGame();
-    }
+    //public void PauseGameDry()
+    //{
+    //    dryRun = true;
+    //    PauseGame();
+    //}
 
     public void ResumeGame()
     {
         CurrentGameState = GameState.Running;
     }
 
-    public void ResumeGameDry()
-    {
-        dryRun = true;
-        ResumeGame();
-    }
+    //public void ResumeGameDry()
+    //{
+    //    dryRun = true;
+    //    ResumeGame();
+    //}
 
     void OnPause()
     {
         Time.timeScale = 0f;
-        if (dryRun)
-            dryRun = false;
-        else
-            OnPauseEvent?.Invoke();
+        //if (dryRun)
+        //    dryRun = false;
+        //else
+        //    OnPauseEvent?.Invoke();
+        OnPauseEvent?.Invoke();
     }
     void OnResume()
     {
         Time.timeScale = 1f;
-        if (dryRun)
-            dryRun = false;
-        else
-            OnResumeEvent?.Invoke();
+        //if (dryRun)
+        //    dryRun = false;
+        //else
+        //    OnResumeEvent?.Invoke();
+        OnResumeEvent?.Invoke();
     }
 }

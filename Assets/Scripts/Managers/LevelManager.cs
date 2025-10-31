@@ -2,27 +2,30 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    public Transform enemies;
-    public Transform collectables;
-    public float speed = 10f;
-    public float scoreIncreaseSpeed = 1f;
-    public float zombieSpawnRate = 2f;
-    public float collectableSpawnRate = 7f;
+    [Header("Configuration")]
+    [SerializeField] Transform enemiesParent;
+    [SerializeField] Transform collectablesParent;
+    [SerializeField] Transform[] lines;
+    [SerializeField] GameObject zombiePrefab;
+    [SerializeField] GameObject collectablePrefab;
 
-    public GameObject zombiePrefab;
-    public GameObject collectablePrefab;
+    [Header("Level Building")]
+    [SerializeField] float zombieSpawnRate = 2f;
+    [SerializeField] float collectableSpawnRate = 7f;
+    [SerializeField] float levelSpeed = 10f;
+    [SerializeField] float scoreIncreaseSpeed = 1f;
 
-    public Transform[] seritler;
-
-    float zombieSpawnTimer = 0f;
-    float collectableSpawnTimer = 0f;
-
+    float zombieSpawnTimer;
+    float collectableSpawnTimer;
     int previousZombieDecision;
+    bool levelRunning;
 
     public float Score { get; private set; } = 0f;
 
     void Update()
     {
+        if (!levelRunning)
+            return;
         SpawnCollectable();
         SpawnZombie();
         MoveChildren();
@@ -44,8 +47,8 @@ public class LevelManager : MonoBehaviour
             {
                 GameObject collectable = Instantiate(collectablePrefab);
                 Destroy(collectable, 10f);
-                collectable.transform.position = seritler[i].position;
-                collectable.transform.SetParent(collectables);
+                collectable.transform.position = lines[i].position;
+                collectable.transform.SetParent(collectablesParent);
                 collectableSpawnTimer = 0f;
             }       
         }
@@ -66,8 +69,8 @@ public class LevelManager : MonoBehaviour
 
             GameObject zombie = Instantiate(zombiePrefab);
             Destroy(zombie, 10f);
-            zombie.transform.position = seritler[decision].position + (Vector3.right * Random.Range(-1f, 1f));
-            zombie.transform.SetParent(enemies);
+            zombie.transform.position = lines[decision].position + (Vector3.right * Random.Range(-1f, 1f));
+            zombie.transform.SetParent(enemiesParent);
             zombieSpawnTimer = 0f;
         }
         else
@@ -78,13 +81,23 @@ public class LevelManager : MonoBehaviour
 
     void MoveChildren()
     {
-        foreach (Transform enemy in enemies)
+        foreach (Transform enemy in enemiesParent)
         {
-            enemy.Translate(new Vector3(0f, 0f, speed * Time.deltaTime));
+            enemy.Translate(new Vector3(0f, 0f, levelSpeed * Time.deltaTime));
         }
-        foreach (Transform collectable in collectables)
+        foreach (Transform collectable in collectablesParent)
         {
-            collectable.Translate(new Vector3(0f, 0f, speed * Time.deltaTime));
+            collectable.Translate(new Vector3(0f, 0f, levelSpeed * Time.deltaTime));
         }
+    }
+
+    public void StartLevel()
+    {
+        levelRunning = true;
+    }
+
+    public void StopLevel()
+    {
+        levelRunning = false;
     }
 }
