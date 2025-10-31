@@ -6,7 +6,7 @@ public class HealthCollectable : MonoBehaviour
     [SerializeField] TMP_Text text;
     [SerializeField] float m_HealthGain = -25f;
 
-    float HealthGain
+    public float HealthGain
     {
         get
         {

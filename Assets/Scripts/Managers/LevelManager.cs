@@ -48,6 +48,7 @@ public class LevelManager : MonoBehaviour
     void UpdateScore()
     {
         Score += scoreIncreaseSpeed * Time.deltaTime;
+        scoreIncreaseSpeed += acceleration * Time.deltaTime;
     }
 
     void SpawnCollectable()
@@ -55,12 +56,19 @@ public class LevelManager : MonoBehaviour
         if (collectableSpawnTimer > collectableSpawnRate)
         {
             int decision = Random.Range(0, 3);
-            
+            float lerp = (levelSpeed - startingSpeed) / (maxSpeed - startingSpeed);
 
             for (int i = 0; i <= decision; i++)
             {
                 int prefabDecision = Random.Range(0, collectablePrefab.Length);
                 GameObject collectable = Instantiate(collectablePrefab[prefabDecision]);
+                if (collectable.TryGetComponent(out HealthCollectable health))
+                    health.HealthGain = Mathf.Lerp(0f, -25f, lerp);
+                else if (collectable.TryGetComponent(out UpgradeCollectable upgrade))
+                {
+                    upgrade.UpgradeUnlock = (int)Mathf.Lerp(2f, 10f, lerp);
+                    upgrade.fireRateIncrease = Mathf.Lerp(0.5f, 2f, lerp);
+                }
                 Destroy(collectable, 10f);
                 collectable.transform.position = lines[i].position;
                 collectable.transform.SetParent(collectablesParent);
