@@ -12,7 +12,12 @@ public class LevelManager : MonoBehaviour
     [Header("Level Building")]
     [SerializeField] float zombieSpawnRate = 2f;
     [SerializeField] float collectableSpawnRate = 7f;
-    [SerializeField] float levelSpeed = 10f;
+
+    [Header("Level Speed")]
+    float levelSpeed = 10f;
+    [SerializeField] float startingSpeed;
+    [SerializeField] float maxSpeed;
+    [SerializeField] float acceleration;
     [SerializeField] float scoreIncreaseSpeed = 1f;
 
     float zombieSpawnTimer;
@@ -26,9 +31,11 @@ public class LevelManager : MonoBehaviour
     {
         if (!levelRunning)
             return;
+
         SpawnCollectable();
         SpawnZombie();
-        MoveChildren();
+        SetSpeed();
+        MoveObjects();
         UpdateScore();
     }
 
@@ -79,7 +86,14 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    void MoveChildren()
+    void SetSpeed()
+    {
+        levelSpeed += acceleration * Time.deltaTime;
+        if (levelSpeed > maxSpeed)
+            levelSpeed = maxSpeed;
+    }
+
+    void MoveObjects()
     {
         foreach (Transform enemy in enemiesParent)
         {
@@ -93,6 +107,7 @@ public class LevelManager : MonoBehaviour
 
     public void StartLevel()
     {
+        levelSpeed = startingSpeed;
         levelRunning = true;
     }
 

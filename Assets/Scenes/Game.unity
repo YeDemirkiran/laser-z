@@ -4171,7 +4171,9 @@ MonoBehaviour:
   collectablePrefab: {fileID: 6664337989057018485, guid: 732522289ebb61c4a8a045eb3c489c40, type: 3}
   zombieSpawnRate: 1
   collectableSpawnRate: 7
-  levelSpeed: 10
+  startingSpeed: 10
+  maxSpeed: 40
+  acceleration: 0.5
   scoreIncreaseSpeed: 1
 --- !u!1 &1603576313
 GameObject:
