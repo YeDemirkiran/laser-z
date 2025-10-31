@@ -7,7 +7,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] Transform collectablesParent;
     [SerializeField] Transform[] lines;
     [SerializeField] GameObject zombiePrefab;
-    [SerializeField] GameObject collectablePrefab;
+    [SerializeField] GameObject[] collectablePrefab;
 
     [Header("Level Building")]
     [SerializeField] float zombieSpawnRate = 2f;
@@ -55,10 +55,12 @@ public class LevelManager : MonoBehaviour
         if (collectableSpawnTimer > collectableSpawnRate)
         {
             int decision = Random.Range(0, 3);
+            
 
             for (int i = 0; i <= decision; i++)
             {
-                GameObject collectable = Instantiate(collectablePrefab);
+                int prefabDecision = Random.Range(0, collectablePrefab.Length);
+                GameObject collectable = Instantiate(collectablePrefab[prefabDecision]);
                 Destroy(collectable, 10f);
                 collectable.transform.position = lines[i].position;
                 collectable.transform.SetParent(collectablesParent);
