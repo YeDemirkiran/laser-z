@@ -4174,7 +4174,7 @@ MonoBehaviour:
   zombieSpawnRate: 3
   collectableSpawnRate: 9
   startingSpeed: 10
-  maxSpeed: 25
+  maxSpeed: 20
   acceleration: 0.25
   scoreIncreaseSpeed: 1
 --- !u!1 &1603576313

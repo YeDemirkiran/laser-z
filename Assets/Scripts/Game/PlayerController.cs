@@ -28,6 +28,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float steerSpeed = 1f;
     float input = 0f;
 
+    Rigidbody rb;
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+
     void OnEnable()
     {
         moveAction.action.Enable();
@@ -55,7 +62,7 @@ public class PlayerController : MonoBehaviour
     void Move()
     {
         float horizontal = Mathf.Clamp(input, -1f, 1f) * steerSpeed * Time.deltaTime;
-        transform.Translate(Vector3.right * horizontal);
+        rb.position += Vector3.right * horizontal;
     }
     public void AddHealth(float health)
     {

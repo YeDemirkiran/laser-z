@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAI
   health: 100
-  speed: 0.7
+  speed: 1.5
 --- !u!1 &2790310409024929557
 GameObject:
   m_ObjectHideFlags: 0
@@ -657,7 +657,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 05804e4d2f6a51b498597ddab2093df2, type: 2}
     - target: {fileID: 5866666021909216657, guid: 34f30ca82258d1a43bb43cf028a77993, type: 3}
       propertyPath: m_ApplyRootMotion
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
