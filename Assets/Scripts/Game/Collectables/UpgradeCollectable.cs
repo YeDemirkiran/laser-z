@@ -45,7 +45,7 @@ public class UpgradeCollectable : MonoBehaviour
             if (gun == null)
                 return;
 
-            gun.fireRate += fireRateIncrease;
+            gun.IncreaseFireRate(fireRateIncrease);
             disabled = true;
         }
         else if (other.gameObject.CompareTag("Bullet"))

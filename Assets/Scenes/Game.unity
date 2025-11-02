@@ -3857,17 +3857,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 069ccbedcf5592b44af13c8a3e01a1e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  fireRate: 2
-  maxFireRate: 20
-  bulletSpeed: 2500
-  gunRange: 50
   bulletOrigins:
   - {fileID: 258526588}
   - {fileID: 1947435705}
   bulletPrefab: {fileID: 829231193270196691, guid: 828dd8270edf018479e2b6b34240101a, type: 3}
-  bulletLayerMask:
+  targetLayerMask:
     serializedVersion: 2
     m_Bits: 72
+  fireRate: 2
+  maxFireRate: 20
+  gunRange: 50
+  bulletForce: 100
+  fireMode: 1
 --- !u!1 &1361428248
 GameObject:
   m_ObjectHideFlags: 0

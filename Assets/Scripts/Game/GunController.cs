@@ -1,16 +1,19 @@
+using System;
 using UnityEngine;
 
 public class GunController : MonoBehaviour
 {
-    public float fireRate = 1f;
-    public float maxFireRate = 4f;
-    public float bulletSpeed = 1000f;
-    public float gunRange = 75f;
-    public Transform[] bulletOrigins;
-    public GameObject bulletPrefab;
-    public LayerMask bulletLayerMask;
+    [Header("Configuration")]
+    [SerializeField] Transform[] bulletOrigins;
+    [SerializeField] GameObject bulletPrefab;
+    [SerializeField] LayerMask targetLayerMask;
 
-    public enum FireMode { Normal, Volley }
+    [Header("Gun Properties")]
+    [SerializeField] float fireRate = 1f;
+    [SerializeField] float maxFireRate = 4f;
+    [SerializeField] float gunRange = 75f;
+    [SerializeField] float bulletForce = 1000f;
+    enum FireMode { Normal, Volley }
     [SerializeField] FireMode fireMode = FireMode.Normal;
 
     private float timer = 0f;
@@ -24,9 +27,6 @@ public class GunController : MonoBehaviour
 
     void Update()
     {
-        if (fireRate > maxFireRate)
-            fireRate = maxFireRate;
-
         if (timer >= 1f / fireRate)
         {
             if (fireMode == FireMode.Normal)
@@ -48,7 +48,7 @@ public class GunController : MonoBehaviour
 
     void FireGun(Transform origin)
     {
-        bool isHit = Physics.Raycast(origin.position, origin.forward, gunRange, bulletLayerMask);
+        bool isHit = Physics.Raycast(origin.position, origin.forward, gunRange, targetLayerMask);
 
         if (isHit)
         {
@@ -58,10 +58,16 @@ public class GunController : MonoBehaviour
 
             Rigidbody rb = bullet.GetComponent<Rigidbody>();
 
-            rb.AddForce(origin.forward * bulletSpeed);
+            rb.AddForce(origin.forward * bulletForce, ForceMode.Impulse);
             Destroy(bullet, 5f);
 
             timer = 0f;
         }
+    }
+
+    public void IncreaseFireRate(float increase)
+    {
+        fireRate += increase;
+        fireRate = Mathf.Clamp(fireRate, 0f, maxFireRate);
     }
 }
