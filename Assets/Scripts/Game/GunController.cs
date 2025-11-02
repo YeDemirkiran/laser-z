@@ -24,14 +24,17 @@ public class GunController : MonoBehaviour
 
     int volleyModeIndex = 0;
 
+    LevelManager levelManager;
+
     private void Start()
     {
-        timer = 1f / fireRate;
+        levelManager = FindFirstObjectByType<LevelManager>();
     }
 
     void Update()
     {
-        GunLoop();
+        if (levelManager.IsLevelRunning)
+            GunLoop();
     }
 
     void GunLoop()
@@ -70,13 +73,15 @@ public class GunController : MonoBehaviour
         for (int i = 0; i < amount; i++)
         {
             Debug.Log("Shotgun bullet " + i);
+
+            Vector3 position = origin.position;
             Vector3 direction = origin.forward;
 
             float spreadX = Random.Range(-spread, spread);
-            float spreadY = Random.Range(-spread, spread);
 
-            direction = Quaternion.Euler(spreadY, spreadX, 0) * direction;
-            FireGun(origin.position, direction, true);
+            direction = Quaternion.Euler(0f, spreadX, 0) * direction;
+            position += new Vector3(Random.Range(-0.25f, 0.25f), 0f, 0f);
+            FireGun(position, direction, true);
         }
     }
 

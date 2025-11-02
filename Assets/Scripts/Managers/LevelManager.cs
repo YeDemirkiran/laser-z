@@ -23,7 +23,9 @@ public class LevelManager : MonoBehaviour
     float zombieSpawnTimer;
     float collectableSpawnTimer;
     int previousZombieDecision;
+
     bool levelRunning;
+    public bool IsLevelRunning => levelRunning;
 
     public float Score { get; private set; } = 0f;
 

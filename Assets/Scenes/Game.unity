@@ -1128,7 +1128,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2646341758631430628, guid: f7431a43585ff78479a4c71e4e36072b, type: 3}
       propertyPath: bulletSpread
-      value: 5
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 2646341758631430628, guid: f7431a43585ff78479a4c71e4e36072b, type: 3}
       propertyPath: bulletOrigins.Array.size
