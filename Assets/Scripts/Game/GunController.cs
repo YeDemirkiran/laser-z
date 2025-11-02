@@ -6,11 +6,16 @@ public class GunController : MonoBehaviour
     public float maxFireRate = 4f;
     public float bulletSpeed = 1000f;
     public float gunRange = 75f;
-    public Transform crosshair;
+    public Transform[] bulletOrigins;
     public GameObject bulletPrefab;
     public LayerMask bulletLayerMask;
 
+    public enum FireMode { Normal, Volley }
+    [SerializeField] FireMode fireMode = FireMode.Normal;
+
     private float timer = 0f;
+
+    int volleyModeIndex = 0;
 
     private void Start()
     {
@@ -24,25 +29,39 @@ public class GunController : MonoBehaviour
 
         if (timer >= 1f / fireRate)
         {
-            bool isHit = Physics.Raycast(crosshair.position, crosshair.forward, gunRange, bulletLayerMask);
-
-            if (isHit)
+            if (fireMode == FireMode.Normal)
             {
-                GameObject bullet = Instantiate(bulletPrefab);
-
-                bullet.transform.SetPositionAndRotation(crosshair.transform.position, crosshair.transform.rotation);
-
-                Rigidbody rb = bullet.GetComponent<Rigidbody>();
-
-                rb.AddForce(crosshair.forward * bulletSpeed);
-                Destroy(bullet, 5f);
-
-                timer = 0f;
-            }        
+                foreach (Transform origin in bulletOrigins)
+                    FireGun(origin);
+            }
+            else
+            {
+                FireGun(bulletOrigins[volleyModeIndex]);
+                volleyModeIndex = (volleyModeIndex + 1) % bulletOrigins.Length;
+            }
         }
         else
         {
             timer += Time.deltaTime;
+        }
+    }
+
+    void FireGun(Transform origin)
+    {
+        bool isHit = Physics.Raycast(origin.position, origin.forward, gunRange, bulletLayerMask);
+
+        if (isHit)
+        {
+            GameObject bullet = Instantiate(bulletPrefab);
+
+            bullet.transform.SetPositionAndRotation(origin.transform.position, origin.transform.rotation);
+
+            Rigidbody rb = bullet.GetComponent<Rigidbody>();
+
+            rb.AddForce(origin.forward * bulletSpeed);
+            Destroy(bullet, 5f);
+
+            timer = 0f;
         }
     }
 }
