@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class GunController : MonoBehaviour
@@ -13,7 +12,12 @@ public class GunController : MonoBehaviour
     [SerializeField] float maxFireRate = 4f;
     [SerializeField] float gunRange = 75f;
     [SerializeField] float bulletForce = 1000f;
-    enum FireMode { Normal, Volley }
+
+    [Header("Shotgun Properties")]
+    [SerializeField] int bulletAmount;
+    [SerializeField] float bulletSpread;
+
+    enum FireMode { Normal, Volley, Shotgun }
     [SerializeField] FireMode fireMode = FireMode.Normal;
 
     private float timer = 0f;
@@ -27,18 +31,28 @@ public class GunController : MonoBehaviour
 
     void Update()
     {
+        GunLoop();
+    }
+
+    void GunLoop()
+    {
         if (timer >= 1f / fireRate)
         {
-            if (fireMode == FireMode.Normal)
+            if (fireMode == FireMode.Shotgun)
+            {
+                FireGunMultiple(bulletOrigins[0], bulletAmount, bulletSpread);
+            }
+            else if (fireMode == FireMode.Normal)
             {
                 foreach (Transform origin in bulletOrigins)
-                    FireGun(origin);
+                    FireGunSingle(origin);
             }
             else
             {
-                FireGun(bulletOrigins[volleyModeIndex]);
+                FireGunSingle(bulletOrigins[volleyModeIndex]);
                 volleyModeIndex = (volleyModeIndex + 1) % bulletOrigins.Length;
             }
+            timer = 0f;
         }
         else
         {
@@ -46,22 +60,45 @@ public class GunController : MonoBehaviour
         }
     }
 
-    void FireGun(Transform origin)
+    void FireGunSingle(Transform origin)
     {
-        bool isHit = Physics.Raycast(origin.position, origin.forward, gunRange, targetLayerMask);
+        FireGun(origin.position, origin.forward);
+    }
+
+    void FireGunMultiple(Transform origin, int amount, float spread)
+    {
+        for (int i = 0; i < amount; i++)
+        {
+            Debug.Log("Shotgun bullet " + i);
+            Vector3 direction = origin.forward;
+
+            float spreadX = Random.Range(-spread, spread);
+            float spreadY = Random.Range(-spread, spread);
+
+            direction = Quaternion.Euler(spreadY, spreadX, 0) * direction;
+            FireGun(origin.position, direction, true);
+        }
+    }
+
+    void FireGun(Vector3 position, Vector3 direction, bool bypassRaycast = false)
+    {
+        bool isHit;
+
+        if (!bypassRaycast)
+            isHit = Physics.Raycast(position, direction, gunRange, targetLayerMask);
+        else
+            isHit = true;
 
         if (isHit)
         {
             GameObject bullet = Instantiate(bulletPrefab);
 
-            bullet.transform.SetPositionAndRotation(origin.transform.position, origin.transform.rotation);
+            bullet.transform.SetPositionAndRotation(position, Quaternion.LookRotation(direction));
 
             Rigidbody rb = bullet.GetComponent<Rigidbody>();
 
-            rb.AddForce(origin.forward * bulletForce, ForceMode.Impulse);
+            rb.AddForce(direction * bulletForce, ForceMode.Impulse);
             Destroy(bullet, 5f);
-
-            timer = 0f;
         }
     }
 
