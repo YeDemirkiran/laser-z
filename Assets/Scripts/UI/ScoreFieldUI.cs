@@ -8,6 +8,6 @@ public class ScoreFieldUI : MonoBehaviour
 
     void Update()
     {
-        scoreText.text = levelManager.Score.ToString("0.00");
+        scoreText.text = levelManager.Score.ToString("0");
     }
 }

@@ -22,6 +22,9 @@ public class LevelManager : MonoBehaviour
     [SerializeField] float acceleration;
     [SerializeField] float scoreIncreaseSpeed = 1f;
 
+    [Header("Other")]
+    [SerializeField] string bestScorePlayerPrefsName;
+
     float zombieSpawnTimer;
     float collectableSpawnTimer;
     int previousZombieDecision;
@@ -138,5 +141,19 @@ public class LevelManager : MonoBehaviour
     public void StopLevel()
     {
         levelRunning = false;
+
+        //Debug.Log("Stopped level");
+
+        float bestScore = PlayerPrefs.GetFloat(bestScorePlayerPrefsName, 0f);
+
+        //Debug.Log("Best: " + bestScore);
+        //Debug.Log("Current: " + Score);
+
+        if (Score > bestScore)
+        {
+            //Debug.Log("Current: " + Score);
+            PlayerPrefs.SetFloat(bestScorePlayerPrefsName, Score);
+            PlayerPrefs.Save();
+        }
     }
 }
