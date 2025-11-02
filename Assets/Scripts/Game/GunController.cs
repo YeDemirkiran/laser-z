@@ -72,8 +72,6 @@ public class GunController : MonoBehaviour
     {
         for (int i = 0; i < amount; i++)
         {
-            Debug.Log("Shotgun bullet " + i);
-
             Vector3 position = origin.position;
             Vector3 direction = origin.forward;
 
