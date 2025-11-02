@@ -1280,7 +1280,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4789340454750721587, guid: f7431a43585ff78479a4c71e4e36072b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7084447802914088719, guid: f7431a43585ff78479a4c71e4e36072b, type: 3}
       propertyPath: m_Name
@@ -4474,6 +4474,8 @@ MonoBehaviour:
   - {fileID: 6664337989057018485, guid: db0358c5854134f468d317db2062ef65, type: 3}
   - {fileID: 6664337989057018485, guid: 732522289ebb61c4a8a045eb3c489c40, type: 3}
   zombieSpawnRate: 3
+  maxZombieSpawnRate: 0.5
+  zombieSpawnRateChanger: 0.05
   collectableSpawnRate: 9
   startingSpeed: 10
   maxSpeed: 20
@@ -6496,7 +6498,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4789340454750721587, guid: 4e0ff53aedc29054f974cf1eda06733a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6570,11 +6572,11 @@ PrefabInstance:
     - target: {fileID: 9185767045492517796, guid: bf4f4a4b79ea1a4459565dd2d24d48f0, type: 3}
       propertyPath: 'bulletOrigins.Array.data[1]'
       value: 
-      objectReference: {fileID: 1232614788}
+      objectReference: {fileID: 1881529715}
     - target: {fileID: 9185767045492517796, guid: bf4f4a4b79ea1a4459565dd2d24d48f0, type: 3}
       propertyPath: 'bulletOrigins.Array.data[2]'
       value: 
-      objectReference: {fileID: 1881529715}
+      objectReference: {fileID: 1232614788}
     - target: {fileID: 9185767045492517796, guid: bf4f4a4b79ea1a4459565dd2d24d48f0, type: 3}
       propertyPath: 'bulletOrigins.Array.data[3]'
       value: 

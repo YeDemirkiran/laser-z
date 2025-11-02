@@ -11,6 +11,8 @@ public class LevelManager : MonoBehaviour
 
     [Header("Level Building")]
     [SerializeField] float zombieSpawnRate = 2f;
+    [SerializeField] float maxZombieSpawnRate = 0.5f;
+    [SerializeField] float zombieSpawnRateChanger = 0.05f;
     [SerializeField] float collectableSpawnRate = 7f;
 
     [Header("Level Speed")]
@@ -109,6 +111,10 @@ public class LevelManager : MonoBehaviour
         levelSpeed += acceleration * Time.deltaTime;
         if (levelSpeed > maxSpeed)
             levelSpeed = maxSpeed;
+
+        zombieSpawnRate -= zombieSpawnRateChanger * Time.deltaTime;
+        if (zombieSpawnRate < maxZombieSpawnRate)
+            zombieSpawnRate = maxZombieSpawnRate;
     }
 
     void MoveObjects()
