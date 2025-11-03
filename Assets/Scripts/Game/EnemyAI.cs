@@ -6,6 +6,8 @@ public class EnemyAI : MonoBehaviour
     public float speed = 5f;
     public float damage = 25f;
 
+    bool disabled;
+
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -26,10 +28,11 @@ public class EnemyAI : MonoBehaviour
             if (health <= 0f)
                 Destroy(gameObject);
         }
-        else if (collision.gameObject.CompareTag("Player"))
+        else if (!disabled && collision.gameObject.CompareTag("Player"))
         {
             PlayerController player = collision.gameObject.GetComponent<PlayerController>();
             player.AddHealth(damage * (damage > 0f ? -1f : 1f));
+            disabled = true;
         }
     }
 }
