@@ -1019,11 +1019,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2646341758631430628, guid: f7431a43585ff78479a4c71e4e36072b, type: 3}
       propertyPath: bulletAmount
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2646341758631430628, guid: f7431a43585ff78479a4c71e4e36072b, type: 3}
       propertyPath: bulletSpread
-      value: 2.5
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2646341758631430628, guid: f7431a43585ff78479a4c71e4e36072b, type: 3}
       propertyPath: bulletOrigins.Array.size
@@ -5473,7 +5473,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1842406978}
   - component: {fileID: 1842406979}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left Collder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6317,7 +6317,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2106599057}
   - component: {fileID: 2106599058}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Right Collideer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
