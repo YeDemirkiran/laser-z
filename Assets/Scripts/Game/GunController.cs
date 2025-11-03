@@ -2,7 +2,10 @@ using UnityEngine;
 
 public class GunController : MonoBehaviour
 {
+    enum FireMode { Normal, Volley, Shotgun }
+
     [Header("Configuration")]
+    [SerializeField] FireMode fireMode = FireMode.Normal;
     [SerializeField] Transform[] bulletOrigins;
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] LayerMask targetLayerMask;
@@ -17,8 +20,7 @@ public class GunController : MonoBehaviour
     [SerializeField] int bulletAmount;
     [SerializeField] float bulletSpread;
 
-    enum FireMode { Normal, Volley, Shotgun }
-    [SerializeField] FireMode fireMode = FireMode.Normal;
+    
 
     private float timer = 0f;
 

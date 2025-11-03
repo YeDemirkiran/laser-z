@@ -323,8 +323,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NewGunCollectable
   text: {fileID: 4728379345947090851}
-  m_UpgradeUnlock: 10
-  gunID: 1
+  m_UpgradeUnlock: 2
+  gunID: 2
 --- !u!1 &6986566552599334762
 GameObject:
   m_ObjectHideFlags: 0

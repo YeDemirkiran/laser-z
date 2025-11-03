@@ -1011,15 +1011,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2646341758631430628, guid: f7431a43585ff78479a4c71e4e36072b, type: 3}
       propertyPath: bulletForce
-      value: 50
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 2646341758631430628, guid: f7431a43585ff78479a4c71e4e36072b, type: 3}
       propertyPath: maxFireRate
-      value: 5
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2646341758631430628, guid: f7431a43585ff78479a4c71e4e36072b, type: 3}
       propertyPath: bulletAmount
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2646341758631430628, guid: f7431a43585ff78479a4c71e4e36072b, type: 3}
       propertyPath: bulletSpread
@@ -4279,7 +4279,7 @@ LineRenderer:
   m_SortingOrder: 0
   m_Positions:
   - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 25}
+  - {x: 0, y: 0, z: 50}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.01
@@ -6663,7 +6663,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4789340454750721587, guid: 4e0ff53aedc29054f974cf1eda06733a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6724,7 +6724,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7830053083803674051, guid: bf4f4a4b79ea1a4459565dd2d24d48f0, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9185767045492517796, guid: bf4f4a4b79ea1a4459565dd2d24d48f0, type: 3}
       propertyPath: bulletOrigins.Array.size

@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        Guns = gameObject.GetComponentsInChildren<GunController>();
+        Guns = gameObject.GetComponentsInChildren<GunController>(true);
         foreach (var gun in Guns)
         {
             if (gun.gameObject.activeSelf)

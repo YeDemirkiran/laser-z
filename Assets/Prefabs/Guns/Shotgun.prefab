@@ -78,10 +78,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 069ccbedcf5592b44af13c8a3e01a1e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  fireMode: 1
   bulletOrigins:
   - {fileID: 802570161977686182}
   - {fileID: 1168037811582581339}
-  bulletPrefab: {fileID: 829231193270196691, guid: 828dd8270edf018479e2b6b34240101a, type: 3}
+  bulletPrefab: {fileID: 829231193270196691, guid: fd15aef708fda7e43bbd5e6a24787396, type: 3}
   targetLayerMask:
     serializedVersion: 2
     m_Bits: 72
@@ -89,7 +90,8 @@ MonoBehaviour:
   maxFireRate: 20
   gunRange: 50
   bulletForce: 100
-  fireMode: 1
+  bulletAmount: 0
+  bulletSpread: 0
 --- !u!1 &7084447802914088719
 GameObject:
   m_ObjectHideFlags: 0

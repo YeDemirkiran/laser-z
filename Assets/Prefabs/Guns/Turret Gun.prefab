@@ -86,9 +86,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 72
   fireRate: 2
-  maxFireRate: 20
+  maxFireRate: 4
   gunRange: 50
   bulletForce: 100
+  bulletAmount: 0
+  bulletSpread: 0
   fireMode: 1
 --- !u!1 &7084447802914088719
 GameObject:

@@ -113,7 +113,7 @@ MonoBehaviour:
   bulletOrigins:
   - {fileID: 8708099457778924005}
   - {fileID: 3154251154613752378}
-  bulletPrefab: {fileID: 829231193270196691, guid: 828dd8270edf018479e2b6b34240101a, type: 3}
+  bulletPrefab: {fileID: 829231193270196691, guid: 76099986b5dbebf439357bd049f198f1, type: 3}
   targetLayerMask:
     serializedVersion: 2
     m_Bits: 72
