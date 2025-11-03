@@ -8,6 +8,8 @@ public class LevelManager : MonoBehaviour
     [SerializeField] Transform[] lines;
     [SerializeField] GameObject zombiePrefab;
     [SerializeField] GameObject[] collectablePrefab;
+    [SerializeField] Renderer groundRenderer;
+    Material groundMaterial;
 
     [Header("Level Building")]
     [SerializeField] float zombieSpawnRate = 2f;
@@ -38,6 +40,8 @@ public class LevelManager : MonoBehaviour
     {
         zombieSpawnTimer = zombieSpawnRate;
         collectableSpawnTimer = collectableSpawnRate / 2f;
+
+        groundMaterial = groundRenderer.material;
     }
 
     void Update()
@@ -122,14 +126,20 @@ public class LevelManager : MonoBehaviour
 
     void MoveObjects()
     {
+        float delta = levelSpeed * Time.deltaTime;
+        float groundDelta = levelSpeed * (groundMaterial.mainTextureScale.y / 1000f) * Time.deltaTime;
+
         foreach (Transform enemy in enemiesParent)
         {
-            enemy.Translate(new Vector3(0f, 0f, levelSpeed * Time.deltaTime));
+            enemy.Translate(new Vector3(0f, 0f, delta));
         }
         foreach (Transform collectable in collectablesParent)
         {
-            collectable.Translate(new Vector3(0f, 0f, levelSpeed * Time.deltaTime));
+            collectable.Translate(new Vector3(0f, 0f, delta));
         }
+        Vector2 texturePos = groundMaterial.mainTextureOffset;
+        texturePos.y -= groundDelta;
+        groundMaterial.mainTextureOffset = texturePos;
     }
 
     public void StartLevel()
