@@ -955,7 +955,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 917356919}
+    m_TransformParent: {fileID: 868605106}
     m_Modifications:
     - target: {fileID: 253215263884567804, guid: f7431a43585ff78479a4c71e4e36072b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2119,6 +2119,40 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &868605105
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 868605106}
+  m_Layer: 0
+  m_Name: Guns
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &868605106
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868605105}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1315995111}
+  - {fileID: 253215264116892934}
+  - {fileID: 516129450}
+  m_Father: {fileID: 917356919}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &886667053
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2363,9 +2397,7 @@ Transform:
   m_Children:
   - {fileID: 1330088440}
   - {fileID: 886667054}
-  - {fileID: 1315995111}
-  - {fileID: 253215264116892934}
-  - {fileID: 516129450}
+  - {fileID: 868605106}
   - {fileID: 1480799968}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6610,7 +6642,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 917356919}
+    m_TransformParent: {fileID: 868605106}
     m_Modifications:
     - target: {fileID: 253215263884567804, guid: 4e0ff53aedc29054f974cf1eda06733a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -6643,7 +6675,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 917356919}
+    m_TransformParent: {fileID: 868605106}
     m_Modifications:
     - target: {fileID: 466906864807714184, guid: bf4f4a4b79ea1a4459565dd2d24d48f0, type: 3}
       propertyPath: m_LocalPosition.x

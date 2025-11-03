@@ -1,12 +1,10 @@
 using TMPro;
 using UnityEngine;
 
-public class UpgradeCollectable : MonoBehaviour
+public class NewGunCollectable : MonoBehaviour
 {
     [SerializeField] TMP_Text text;
     [SerializeField] int m_UpgradeUnlock = 25;
-
-    public float fireRateIncrease;
     public int UpgradeUnlock
     {
         get
@@ -21,6 +19,8 @@ public class UpgradeCollectable : MonoBehaviour
             text.text = m_UpgradeUnlock.ToString();
         }
     }
+
+    public int gunID;
 
     bool disabled;
     bool unlocked;
@@ -42,10 +42,7 @@ public class UpgradeCollectable : MonoBehaviour
             if (!other.attachedRigidbody.TryGetComponent<PlayerController>(out PlayerController player))
                 return;
 
-            GunController gun = player.CurrentGun;
-            gun.IncreaseFireRate(fireRateIncrease);
-
-            disabled = true;
+            player.ChangeGun(gunID);
         }
         else if (other.gameObject.CompareTag("Bullet"))
         {

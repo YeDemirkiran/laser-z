@@ -28,11 +28,27 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float steerSpeed = 1f;
     float input = 0f;
 
+    public GunController CurrentGun { get; private set; }
+    public GunController[] Guns { get; private set; }
+
     Rigidbody rb;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+    }
+
+    private void Start()
+    {
+        Guns = gameObject.GetComponentsInChildren<GunController>();
+        foreach (var gun in Guns)
+        {
+            if (gun.gameObject.activeSelf)
+            {
+                CurrentGun = gun;
+                break;
+            }
+        }
     }
 
     void OnEnable()
@@ -72,5 +88,14 @@ public class PlayerController : MonoBehaviour
     void Die()
     {
         OnDeath?.Invoke();
+    }
+
+    public void ChangeGun(int newGunIndex)
+    {
+        if (newGunIndex >= Guns.Length)
+            return;
+        CurrentGun.gameObject.SetActive(false);
+        CurrentGun = Guns[newGunIndex];
+        CurrentGun.gameObject.SetActive(true);
     }
 }
