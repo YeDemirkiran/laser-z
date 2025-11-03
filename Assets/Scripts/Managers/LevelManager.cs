@@ -26,6 +26,7 @@ public class LevelManager : MonoBehaviour
 
     [Header("Other")]
     [SerializeField] string bestScorePlayerPrefsName;
+    [SerializeField] float groundMoveSpeed = 0.25f;
 
     float zombieSpawnTimer;
     float collectableSpawnTimer;
@@ -51,8 +52,10 @@ public class LevelManager : MonoBehaviour
 
         SpawnCollectable();
         SpawnZombie();
+
         SetSpeed();
         MoveObjects();
+
         UpdateScore();
     }
 
@@ -127,7 +130,7 @@ public class LevelManager : MonoBehaviour
     void MoveObjects()
     {
         float delta = levelSpeed * Time.deltaTime;
-        float groundDelta = levelSpeed * (groundMaterial.mainTextureScale.y / 1000f) * Time.deltaTime;
+        float groundDelta = (levelSpeed * groundMoveSpeed) * Time.deltaTime;
 
         foreach (Transform enemy in enemiesParent)
         {
@@ -152,16 +155,10 @@ public class LevelManager : MonoBehaviour
     {
         levelRunning = false;
 
-        //Debug.Log("Stopped level");
-
         float bestScore = PlayerPrefs.GetFloat(bestScorePlayerPrefsName, 0f);
-
-        //Debug.Log("Best: " + bestScore);
-        //Debug.Log("Current: " + Score);
 
         if (Score > bestScore)
         {
-            //Debug.Log("Current: " + Score);
             PlayerPrefs.SetFloat(bestScorePlayerPrefsName, Score);
             PlayerPrefs.Save();
         }
