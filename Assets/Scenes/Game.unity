@@ -1083,7 +1083,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4789340454750721587, guid: f7431a43585ff78479a4c71e4e36072b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7084447802914088719, guid: f7431a43585ff78479a4c71e4e36072b, type: 3}
       propertyPath: m_Name
@@ -6724,7 +6724,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7830053083803674051, guid: bf4f4a4b79ea1a4459565dd2d24d48f0, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9185767045492517796, guid: bf4f4a4b79ea1a4459565dd2d24d48f0, type: 3}
       propertyPath: bulletOrigins.Array.size
