@@ -4484,6 +4484,7 @@ MonoBehaviour:
   collectablePrefab:
   - {fileID: 6664337989057018485, guid: db0358c5854134f468d317db2062ef65, type: 3}
   - {fileID: 6664337989057018485, guid: 732522289ebb61c4a8a045eb3c489c40, type: 3}
+  - {fileID: 6664337989057018485, guid: 571b96f8cd0ec9641a414d534775f9c3, type: 3}
   zombieSpawnRate: 3
   maxZombieSpawnRate: 0.5
   zombieSpawnRateChanger: 0.05
