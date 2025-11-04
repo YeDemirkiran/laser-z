@@ -5,6 +5,7 @@ public class EnemyAI : MonoBehaviour
     public float health = 100f;
     public float speed = 5f;
     public float damage = 25f;
+    public float scoreIncrease = 10f;
 
     bool disabled;
 
@@ -26,7 +27,10 @@ public class EnemyAI : MonoBehaviour
             Destroy(collision.gameObject);
             health -= 25f;
             if (health <= 0f)
+            {
+                LevelManager.Instance.IncreaseScore(scoreIncrease);
                 Destroy(gameObject);
+            }
         }
         else if (!disabled && collision.gameObject.CompareTag("Player"))
         {

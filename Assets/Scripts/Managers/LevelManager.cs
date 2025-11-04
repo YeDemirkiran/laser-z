@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
+    public static LevelManager Instance;
+
     [Header("Configuration")]
     [SerializeField] Transform enemiesParent;
     [SerializeField] Transform collectablesParent;
@@ -36,6 +38,17 @@ public class LevelManager : MonoBehaviour
     public bool IsLevelRunning => levelRunning;
 
     public float Score { get; private set; } = 0f;
+
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(this);
+            return;
+        }
+
+        Instance = this;
+    }
 
     private void Start()
     {
@@ -162,5 +175,10 @@ public class LevelManager : MonoBehaviour
             PlayerPrefs.SetFloat(bestScorePlayerPrefsName, Score);
             PlayerPrefs.Save();
         }
+    }
+
+    public void IncreaseScore(float score)
+    {
+        Score += score;
     }
 }

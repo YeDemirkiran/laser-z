@@ -55,3 +55,4 @@
 ## Buglar
 - Karakter ana ekranda hareket edebiliyor
 - Mobil kontroller kötü
+- Zombiler ve objeler erken yok oluyor, başka bir destroy yolu bul
