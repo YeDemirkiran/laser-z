@@ -43,8 +43,7 @@ public class UpgradeCollectable : MonoBehaviour
                 return;
 
             GunController gun = player.CurrentGun;
-            bool maxLevelReached = gun.UpgradeGun();
-            Debug.Log("Current gun max level reached: " + maxLevelReached); 
+            gun.UpgradeGun();
             disabled = true;
         }
         else if (other.gameObject.CompareTag("Bullet"))

@@ -34,6 +34,10 @@ public class GunController : MonoBehaviour
 
     LevelManager levelManager;
 
+    bool maxLevelReached = false;
+
+    public System.Action OnMaxLevelReach { get; set; }
+
     private void Start()
     {
         levelManager = LevelManager.Instance;
@@ -122,9 +126,16 @@ public class GunController : MonoBehaviour
     /// </summary>
     public bool UpgradeGun()
     {
+        if (maxLevelReached)
+            return false;
+
         currentLevelIndex = Mathf.Clamp(currentLevelIndex + 1, 0, gunLevels.Length - 1);
         currentGunStat = gunLevels[currentLevelIndex];
 
-        return currentLevelIndex == gunLevels.Length - 1;
+        maxLevelReached = currentLevelIndex == gunLevels.Length - 1;
+
+        if (maxLevelReached)
+            OnMaxLevelReach?.Invoke();
+        return maxLevelReached;
     }
 }

@@ -181,4 +181,14 @@ public class LevelManager : MonoBehaviour
     {
         Score += score;
     }
+
+    internal void NotifyCurrentGunMaxLevelReach()
+    {
+        Debug.Log("The player's current gun has reached max level.");
+    }
+
+    internal void NotifyGunChange(int newGunIndex)
+    {
+        Debug.Log("The player's changed guns.");
+    }
 }

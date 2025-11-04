@@ -28,7 +28,22 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float steerSpeed = 1f;
     float input = 0f;
 
-    public GunController CurrentGun { get; private set; }
+    GunController _currentGun;
+    public GunController CurrentGun 
+    { 
+        get => _currentGun; 
+        private set
+        {
+            if (_currentGun != null)
+            {
+                _currentGun.OnMaxLevelReach -= CurrentGunOnMaxLevelReach;
+                _currentGun.gameObject.SetActive(false);
+            }
+            _currentGun = value;
+            _currentGun.OnMaxLevelReach += CurrentGunOnMaxLevelReach;
+            _currentGun.gameObject.SetActive(true);
+        }
+    }
     public GunController[] Guns { get; private set; }
 
     Rigidbody rb;
@@ -92,10 +107,15 @@ public class PlayerController : MonoBehaviour
 
     public void ChangeGun(int newGunIndex)
     {
-        if (newGunIndex >= Guns.Length)
+        if (newGunIndex >= Guns.Length || CurrentGun == Guns[newGunIndex])
             return;
-        CurrentGun.gameObject.SetActive(false);
+
         CurrentGun = Guns[newGunIndex];
-        CurrentGun.gameObject.SetActive(true);
+        LevelManager.Instance.NotifyGunChange(newGunIndex);
+    }
+
+    void CurrentGunOnMaxLevelReach()
+    {
+        LevelManager.Instance.NotifyCurrentGunMaxLevelReach();
     }
 }
