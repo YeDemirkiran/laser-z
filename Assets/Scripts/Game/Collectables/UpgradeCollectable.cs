@@ -6,7 +6,6 @@ public class UpgradeCollectable : MonoBehaviour
     [SerializeField] TMP_Text text;
     [SerializeField] int m_UpgradeUnlock = 25;
 
-    public float fireRateIncrease;
     public int UpgradeUnlock
     {
         get

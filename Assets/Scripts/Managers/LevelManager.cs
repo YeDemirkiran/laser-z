@@ -9,7 +9,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] Transform collectablesParent;
     [SerializeField] Transform[] lines;
     [SerializeField] GameObject zombiePrefab;
-    [SerializeField] GameObject[] collectablePrefab;
+    [SerializeField] GameObject healthCollectable, upgradeCollectable, gunCollectable;
     [SerializeField] Renderer groundRenderer;
     Material groundMaterial;
 
@@ -38,6 +38,10 @@ public class LevelManager : MonoBehaviour
     public bool IsLevelRunning => levelRunning;
 
     public float Score { get; private set; } = 0f;
+
+    bool currentGunMaxLevel = false;
+
+    int currentGunIndex = 0;
 
     private void Awake()
     {
@@ -87,16 +91,20 @@ public class LevelManager : MonoBehaviour
 
             for (int i = 0; i <= decision; i++)
             {
-                int prefabDecision = Random.Range(0, collectablePrefab.Length);
-                GameObject collectable = Instantiate(collectablePrefab[prefabDecision]);
-                if (collectable.TryGetComponent(out HealthCollectable health))
-                    health.HealthGain = Mathf.Lerp(0f, -25f, lerp);
-                else if (collectable.TryGetComponent(out UpgradeCollectable upgrade))
+                GameObject collectable = null;
+
+                if (i == 0 || i == 2)
                 {
-                    upgrade.UpgradeUnlock = (int)Mathf.Lerp(2f, 10f, lerp);
-                    upgrade.fireRateIncrease = Mathf.Lerp(0.5f, 2f, lerp);
+                    collectable = SpawnHealthCollectable(lerp);
                 }
-                Destroy(collectable, 10f);
+                else if (i == 1)
+                {
+                    if (!currentGunMaxLevel)
+                        collectable = SpawnUpgradeCollectable(lerp);
+                    else
+                        collectable = SpawnGunCollectable(lerp);
+                }
+                Destroy(collectable, 15f);
                 collectable.transform.position = lines[i].position;
                 collectable.transform.SetParent(collectablesParent);
                 collectableSpawnTimer = 0f;
@@ -106,6 +114,34 @@ public class LevelManager : MonoBehaviour
         {
             collectableSpawnTimer += Time.deltaTime;
         }
+    }
+
+    GameObject SpawnHealthCollectable(float lerp)
+    {
+        GameObject collectable = Instantiate(healthCollectable);
+        var healthColl = collectable.GetComponent<HealthCollectable>();
+        healthColl.HealthGain = Mathf.Lerp(0f, -25f, lerp);
+
+        return collectable;
+    }
+
+    GameObject SpawnUpgradeCollectable(float lerp)
+    {
+        GameObject collectable = Instantiate(upgradeCollectable);
+        var upgradeColl = collectable.GetComponent<UpgradeCollectable>();
+        upgradeColl.UpgradeUnlock = (int)Mathf.Lerp(2f, 10f, lerp);
+
+        return collectable;
+    }
+
+    GameObject SpawnGunCollectable(float lerp)
+    {
+        GameObject collectable = Instantiate(gunCollectable);
+        var gunColl = collectable.GetComponent<NewGunCollectable>();
+        gunColl.UpgradeUnlock = (int)Mathf.Lerp(2f, 10f, lerp);
+        gunColl.gunID = currentGunIndex + 1;
+
+        return collectable;
     }
 
     void SpawnZombie()
@@ -185,10 +221,13 @@ public class LevelManager : MonoBehaviour
     internal void NotifyCurrentGunMaxLevelReach()
     {
         Debug.Log("The player's current gun has reached max level.");
+        currentGunMaxLevel = true;
     }
 
     internal void NotifyGunChange(int newGunIndex)
     {
         Debug.Log("The player's changed guns.");
+        currentGunMaxLevel = false;
+        currentGunIndex = newGunIndex;
     }
 }
