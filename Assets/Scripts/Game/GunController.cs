@@ -2,6 +2,14 @@ using UnityEngine;
 
 public class GunController : MonoBehaviour
 {
+    [System.Serializable]
+    class GunStats
+    {
+        public float fireRate; 
+        public float bulletForce;
+        public float damage;
+    }
+
     enum FireMode { Normal, Volley, Shotgun }
 
     [Header("Configuration")]
@@ -10,17 +18,15 @@ public class GunController : MonoBehaviour
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] LayerMask targetLayerMask;
 
-    [Header("Gun Properties")]
-    [SerializeField] float fireRate = 1f;
-    [SerializeField] float maxFireRate = 4f;
+    [Header("Gun Stats")]
+    [SerializeField] GunStats[] gunLevels;
+    GunStats currentGunStat;
+    int currentLevelIndex = 0;
     [SerializeField] float gunRange = 75f;
-    [SerializeField] float bulletForce = 1000f;
 
-    [Header("Shotgun Properties")]
+    [Header("Extra: Shotgun Properties")]
     [SerializeField] int bulletAmount;
     [SerializeField] float bulletSpread;
-
-    
 
     private float timer = 0f;
 
@@ -30,7 +36,8 @@ public class GunController : MonoBehaviour
 
     private void Start()
     {
-        levelManager = FindFirstObjectByType<LevelManager>();
+        levelManager = LevelManager.Instance;
+        currentGunStat = gunLevels[0];
     }
 
     void Update()
@@ -41,7 +48,7 @@ public class GunController : MonoBehaviour
 
     void GunLoop()
     {
-        if (timer >= 1f / fireRate)
+        if (timer >= 1f / currentGunStat.fireRate)
         {
             if (fireMode == FireMode.Shotgun)
             {
@@ -102,14 +109,22 @@ public class GunController : MonoBehaviour
 
             Rigidbody rb = bullet.GetComponent<Rigidbody>();
 
-            rb.AddForce(direction * bulletForce, ForceMode.Impulse);
+            rb.AddForce(direction * currentGunStat.bulletForce, ForceMode.Impulse);
             Destroy(bullet, 5f);
         }
     }
 
-    public void IncreaseFireRate(float increase)
+    /// <summary>
+    /// Upgrade the current gun level to the next one.
+    /// <br />
+    /// <br />
+    /// Returns true if maximum level is reached, and returns false otherwise.
+    /// </summary>
+    public bool UpgradeGun()
     {
-        fireRate += increase;
-        fireRate = Mathf.Clamp(fireRate, 0f, maxFireRate);
+        currentLevelIndex = Mathf.Clamp(currentLevelIndex + 1, 0, gunLevels.Length - 1);
+        currentGunStat = gunLevels[currentLevelIndex];
+
+        return currentLevelIndex == gunLevels.Length - 1;
     }
 }
