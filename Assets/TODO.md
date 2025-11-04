@@ -17,7 +17,6 @@
 	- [ ] 5 - Karışık
 - [x] Zombi öldürünce skor gelecek
 - [ ] Gun ve Upgrade Collectable sıralı olacak
-- [ ] Çok silahlı gun collectable
 
 ## Görsel
 - [ ] Silahlara yeni modeller
@@ -57,3 +56,7 @@
 - [ ] Karakter ana ekranda hareket edebiliyor
 - [ ] Mobil kontroller kötü
 - [ ] Zombiler ve objeler erken yok oluyor, başka bir destroy yolu bul
+
+## Optimizasyon
+- [ ] Occlussion Culling
+- [ ] Object pooling
