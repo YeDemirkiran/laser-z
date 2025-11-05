@@ -62,6 +62,8 @@
 - [ ] Mobil kontroller kötü
 - [ ] Zombiler ve objeler erken yok oluyor, başka bir destroy yolu bul
 - [ ] Bazen yeni silaha geçmene rağmen yeni silah collectable'ı geliyor 
+- [ ] Oyundan ana menüye dönünce ana skor kaydedilmiyor
+- [ ] Bazen skor 0'a dönüyor
 
 ## Optimizasyon
 - [ ] Occlussion Culling
