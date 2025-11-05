@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -5,6 +6,7 @@ public class NewGunCollectable : MonoBehaviour
 {
     [SerializeField] TMP_Text text;
     [SerializeField] int m_UpgradeUnlock = 25;
+
     public int UpgradeUnlock
     {
         get
@@ -44,10 +46,10 @@ public class NewGunCollectable : MonoBehaviour
 
             player.ChangeGun(gunID);
         }
-        else if (other.gameObject.CompareTag("Bullet"))
-        {
-            UpgradeUnlock -= 1;
-            Destroy(other.gameObject);
-        }
+    }
+
+    internal void DecreaseUpgradeUnlock(int amount)
+    {
+        UpgradeUnlock -= amount;
     }
 }

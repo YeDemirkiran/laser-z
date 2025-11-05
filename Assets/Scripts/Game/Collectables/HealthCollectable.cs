@@ -38,10 +38,10 @@ public class HealthCollectable : MonoBehaviour
             player.AddHealth(HealthGain);
             disabled = true;
         }
-        else if (other.gameObject.CompareTag("Bullet"))
-        {
-            HealthGain += 1f;
-            Destroy(other.gameObject);
-        }
+    }
+
+    public void IncreaseHealthGain(float amount)
+    {
+        HealthGain += amount;
     }
 }

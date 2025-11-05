@@ -250,7 +250,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8639944422931409216}
   - component: {fileID: 2523151836843499519}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Radar
   m_TagString: Untagged
   m_Icon: {fileID: 0}

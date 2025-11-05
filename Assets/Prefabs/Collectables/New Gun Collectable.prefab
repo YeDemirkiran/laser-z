@@ -261,7 +261,7 @@ GameObject:
   - component: {fileID: -7519329015641156104}
   m_Layer: 6
   m_Name: New Gun Collectable
-  m_TagString: Untagged
+  m_TagString: Collectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

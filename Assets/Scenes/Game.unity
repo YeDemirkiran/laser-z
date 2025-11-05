@@ -1216,6 +1216,67 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 548692505}
   m_CullTransparentMesh: 1
+--- !u!1001 &589941943
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 829231193270196691, guid: 94e5aacad9ae1264a8827429e5f74817, type: 3}
+      propertyPath: m_Name
+      value: Laser Bullet
+      objectReference: {fileID: 0}
+    - target: {fileID: 2912424525994324372, guid: 94e5aacad9ae1264a8827429e5f74817, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.7288733
+      objectReference: {fileID: 0}
+    - target: {fileID: 2912424525994324372, guid: 94e5aacad9ae1264a8827429e5f74817, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.4143939
+      objectReference: {fileID: 0}
+    - target: {fileID: 2912424525994324372, guid: 94e5aacad9ae1264a8827429e5f74817, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 40.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 2912424525994324372, guid: 94e5aacad9ae1264a8827429e5f74817, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2912424525994324372, guid: 94e5aacad9ae1264a8827429e5f74817, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2912424525994324372, guid: 94e5aacad9ae1264a8827429e5f74817, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2912424525994324372, guid: 94e5aacad9ae1264a8827429e5f74817, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2912424525994324372, guid: 94e5aacad9ae1264a8827429e5f74817, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2912424525994324372, guid: 94e5aacad9ae1264a8827429e5f74817, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2912424525994324372, guid: 94e5aacad9ae1264a8827429e5f74817, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4598351005905998815, guid: 94e5aacad9ae1264a8827429e5f74817, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b71ce30169186184d9469178831cf21c, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 94e5aacad9ae1264a8827429e5f74817, type: 3}
 --- !u!1 &590222705
 GameObject:
   m_ObjectHideFlags: 0
@@ -6767,7 +6828,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4789340454750721587, guid: 4e0ff53aedc29054f974cf1eda06733a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6868,15 +6929,15 @@ PrefabInstance:
       objectReference: {fileID: 989657841}
     - target: {fileID: 9185767045492517796, guid: bf4f4a4b79ea1a4459565dd2d24d48f0, type: 3}
       propertyPath: gunLevels.Array.data[0].damage
-      value: 7.5
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 9185767045492517796, guid: bf4f4a4b79ea1a4459565dd2d24d48f0, type: 3}
       propertyPath: gunLevels.Array.data[1].damage
-      value: 7.5
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 9185767045492517796, guid: bf4f4a4b79ea1a4459565dd2d24d48f0, type: 3}
       propertyPath: gunLevels.Array.data[2].damage
-      value: 7.5
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 9185767045492517796, guid: bf4f4a4b79ea1a4459565dd2d24d48f0, type: 3}
       propertyPath: gunLevels.Array.data[0].fireRate
@@ -7024,7 +7085,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2662612572316269859, guid: 3b5bfbfa8f87d2244834188ae2b5ab95, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7045,3 +7106,4 @@ SceneRoots:
   - {fileID: 1361428252}
   - {fileID: 1578168750}
   - {fileID: 365388303}
+  - {fileID: 589941943}

@@ -12,6 +12,7 @@ public class UpgradeCollectable : MonoBehaviour
         {
             return m_UpgradeUnlock;
         }
+
         set
         {
             m_UpgradeUnlock = value < 0 ? 0 : value;
@@ -45,10 +46,10 @@ public class UpgradeCollectable : MonoBehaviour
             gun.UpgradeGun();
             disabled = true;
         }
-        else if (other.gameObject.CompareTag("Bullet"))
-        {
-            UpgradeUnlock -= 1;
-            Destroy(other.gameObject);
-        }
+    }
+
+    public void DecreaseUpgradeUnlock(int amount)
+    {
+        UpgradeUnlock -= amount;
     }
 }
