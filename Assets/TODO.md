@@ -7,7 +7,8 @@
 - [ ] Mobil kontroller düzeltilecek
 
 ### Level Kuralları
-- [ ] Zombiler gittikçe çoğalacak (logaritmik)
+- [x] Zombiler gittikçe çoğalacak
+	- [ ] Zombi artışını logaritmik yap
 - [x] Level hızı sabit
 - [x] Silah akışı
 	- [x] 1 - Tabanca (2.5dk)

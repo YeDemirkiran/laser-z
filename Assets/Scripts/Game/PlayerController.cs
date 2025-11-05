@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     [Header("Movement")]
     [SerializeField] InputActionReference moveAction;
     [SerializeField] float steerSpeed = 1f;
+
     float input = 0f;
 
     GunController _currentGun;
@@ -87,13 +88,13 @@ public class PlayerController : MonoBehaviour
 
     void OnMove(InputAction.CallbackContext context)
     {
-        input = context.ReadValue<float>();
+        input = context.ReadValue<Vector2>().x;
     }
 
     void Move()
     {
-        Debug.Log("Input: " + input);
-        float horizontal = input * steerSpeed * Time.deltaTime;
+        //float horizontal = input * steerSpeed * Time.deltaTime;
+        float horizontal = input * 0.01f;
         rb.position += Vector3.right * horizontal;
     }
     public void AddHealth(float health)
