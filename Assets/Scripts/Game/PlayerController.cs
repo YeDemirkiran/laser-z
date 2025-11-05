@@ -92,7 +92,8 @@ public class PlayerController : MonoBehaviour
 
     void Move()
     {
-        float horizontal = Mathf.Clamp(input, -1f, 1f) * steerSpeed * Time.deltaTime;
+        Debug.Log("Input: " + input);
+        float horizontal = input * steerSpeed * Time.deltaTime;
         rb.position += Vector3.right * horizontal;
     }
     public void AddHealth(float health)

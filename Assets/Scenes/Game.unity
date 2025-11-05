@@ -4738,7 +4738,7 @@ MonoBehaviour:
   groundRenderer: {fileID: 693293497}
   zombieSpawnRate: 3
   maxZombieSpawnRate: 1
-  zombieSpawnRateChanger: 0.02
+  zombieSpawnRateChanger: 0.03
   collectableSpawnRate: 9
   startingSpeed: 10
   maxSpeed: 20
@@ -6929,15 +6929,15 @@ PrefabInstance:
       objectReference: {fileID: 989657841}
     - target: {fileID: 9185767045492517796, guid: bf4f4a4b79ea1a4459565dd2d24d48f0, type: 3}
       propertyPath: gunLevels.Array.data[0].damage
-      value: 12
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9185767045492517796, guid: bf4f4a4b79ea1a4459565dd2d24d48f0, type: 3}
       propertyPath: gunLevels.Array.data[1].damage
-      value: 12
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9185767045492517796, guid: bf4f4a4b79ea1a4459565dd2d24d48f0, type: 3}
       propertyPath: gunLevels.Array.data[2].damage
-      value: 12
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9185767045492517796, guid: bf4f4a4b79ea1a4459565dd2d24d48f0, type: 3}
       propertyPath: gunLevels.Array.data[0].fireRate
@@ -6949,7 +6949,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9185767045492517796, guid: bf4f4a4b79ea1a4459565dd2d24d48f0, type: 3}
       propertyPath: gunLevels.Array.data[2].fireRate
-      value: 20
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 9185767045492517796, guid: bf4f4a4b79ea1a4459565dd2d24d48f0, type: 3}
       propertyPath: gunLevels.Array.data[0].bulletForce

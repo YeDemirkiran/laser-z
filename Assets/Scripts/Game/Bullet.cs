@@ -19,14 +19,10 @@ public class Bullet : MonoBehaviour
 
     void OnHit(GameObject hitObject)
     {
-        Debug.Log("Bullet hit something!");
-
-
         if (hitObject.CompareTag("Enemy"))
         {
             if (!hitObject.TryGetComponent<EnemyAI>(out var enemy))
                 return;
-            Debug.Log("Bullet hit enemy!");
             enemy.GiveDamage(Damage);
         }
         else if (hitObject.CompareTag("Collectable"))
