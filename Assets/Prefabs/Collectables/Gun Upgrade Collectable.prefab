@@ -110,8 +110,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1, z: 2}
+  m_Center: {x: 0, y: 0, z: -0.5}
 --- !u!1 &3259527528848987571
 GameObject:
   m_ObjectHideFlags: 0
@@ -413,7 +413,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeCollectable
   text: {fileID: 4728379345947090851}
   m_UpgradeUnlock: 5
-  fireRateIncrease: 0.5
 --- !u!1 &6986566552599334762
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3563534735030815551}
   - component: {fileID: 3554389078484590422}
   - component: {fileID: 991261389336009186}
+  - component: {fileID: -2260661321263975315}
   m_Layer: 7
   m_Name: Minigun Bullet
   m_TagString: Bullet
@@ -259,3 +260,16 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!114 &-2260661321263975315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 829231193270196691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289277e1a85640142b3b991a95c676fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Bullet
+  bulletMode: 0

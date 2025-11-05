@@ -1,4 +1,5 @@
 using UnityEngine;
+using static Bullet;
 
 public class GunController : MonoBehaviour
 {
@@ -112,9 +113,12 @@ public class GunController : MonoBehaviour
             bullet.transform.SetPositionAndRotation(position, Quaternion.LookRotation(direction));
 
             Rigidbody rb = bullet.GetComponent<Rigidbody>();
-
             rb.AddForce(direction * currentGunStat.bulletForce, ForceMode.Impulse);
-            Destroy(bullet, 5f);
+
+            Bullet bulletComponent = bullet.GetComponent<Bullet>();
+            bulletComponent.Damage = currentGunStat.damage;
+
+            Destroy(bullet, 10f);
         }
     }
 

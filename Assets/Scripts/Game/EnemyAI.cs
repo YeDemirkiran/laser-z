@@ -2,7 +2,18 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
-    public float health = 100f;
+    [SerializeField] float health = 100f;
+    public float Health 
+    {
+        get => health;
+        private set
+        {
+            health = Mathf.Clamp(value, 0f, 100f);
+            if (health <= 0f)
+                Die();
+        }
+    }
+
     public float speed = 5f;
     public float damage = 25f;
     public float scoreIncrease = 10f;
@@ -22,21 +33,24 @@ public class EnemyAI : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Bullet"))
-        {
-            Destroy(collision.gameObject);
-            health -= 25f;
-            if (health <= 0f)
-            {
-                LevelManager.Instance.IncreaseScore(scoreIncrease);
-                Destroy(gameObject);
-            }
-        }
-        else if (!disabled && collision.gameObject.CompareTag("Player"))
+        if (!disabled && collision.gameObject.CompareTag("Player"))
         {
             PlayerController player = collision.gameObject.GetComponent<PlayerController>();
             player.AddHealth(damage * (damage > 0f ? -1f : 1f));
             disabled = true;
         }
+    }
+
+    void Die()
+    {
+        LevelManager.Instance.IncreaseScore(scoreIncrease);
+        Destroy(gameObject);
+    }
+
+    public void GiveDamage(float amount)
+    {
+        if (amount < 0f)
+            amount = -amount;
+        Health -= amount;
     }
 }

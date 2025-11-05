@@ -1010,6 +1010,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2646341758631430628, guid: f7431a43585ff78479a4c71e4e36072b, type: 3}
+      propertyPath: gunRange
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646341758631430628, guid: f7431a43585ff78479a4c71e4e36072b, type: 3}
       propertyPath: bulletForce
       value: 40
       objectReference: {fileID: 0}
@@ -1019,11 +1023,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2646341758631430628, guid: f7431a43585ff78479a4c71e4e36072b, type: 3}
       propertyPath: bulletAmount
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2646341758631430628, guid: f7431a43585ff78479a4c71e4e36072b, type: 3}
       propertyPath: bulletSpread
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2646341758631430628, guid: f7431a43585ff78479a4c71e4e36072b, type: 3}
       propertyPath: gunLevels.Array.size
@@ -1083,15 +1087,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2646341758631430628, guid: f7431a43585ff78479a4c71e4e36072b, type: 3}
       propertyPath: gunLevels.Array.data[0].damage
-      value: 25
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 2646341758631430628, guid: f7431a43585ff78479a4c71e4e36072b, type: 3}
       propertyPath: gunLevels.Array.data[1].damage
-      value: 25
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 2646341758631430628, guid: f7431a43585ff78479a4c71e4e36072b, type: 3}
       propertyPath: gunLevels.Array.data[2].damage
-      value: 25
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 2646341758631430628, guid: f7431a43585ff78479a4c71e4e36072b, type: 3}
       propertyPath: gunLevels.Array.data[0].fireRate
@@ -4667,13 +4671,12 @@ MonoBehaviour:
   - {fileID: 1744060073}
   - {fileID: 776864149}
   zombiePrefab: {fileID: 1082358624496970478, guid: dceabe5763e514140b0e1903879967b6, type: 3}
-  collectablePrefab:
-  - {fileID: 6664337989057018485, guid: db0358c5854134f468d317db2062ef65, type: 3}
-  - {fileID: 6664337989057018485, guid: 732522289ebb61c4a8a045eb3c489c40, type: 3}
-  - {fileID: 6664337989057018485, guid: 571b96f8cd0ec9641a414d534775f9c3, type: 3}
+  healthCollectable: {fileID: 6664337989057018485, guid: db0358c5854134f468d317db2062ef65, type: 3}
+  upgradeCollectable: {fileID: 6664337989057018485, guid: 732522289ebb61c4a8a045eb3c489c40, type: 3}
+  gunCollectable: {fileID: 6664337989057018485, guid: 571b96f8cd0ec9641a414d534775f9c3, type: 3}
   groundRenderer: {fileID: 693293497}
   zombieSpawnRate: 3
-  maxZombieSpawnRate: 0.5
+  maxZombieSpawnRate: 1
   zombieSpawnRateChanger: 0.05
   collectableSpawnRate: 9
   startingSpeed: 10
@@ -6715,6 +6718,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2646341758631430628, guid: 4e0ff53aedc29054f974cf1eda06733a, type: 3}
+      propertyPath: gunRange
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646341758631430628, guid: 4e0ff53aedc29054f974cf1eda06733a, type: 3}
       propertyPath: gunLevels.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -6828,6 +6835,10 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9185767045492517796, guid: bf4f4a4b79ea1a4459565dd2d24d48f0, type: 3}
+      propertyPath: gunRange
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 9185767045492517796, guid: bf4f4a4b79ea1a4459565dd2d24d48f0, type: 3}
       propertyPath: maxFireRate
       value: 12
       objectReference: {fileID: 0}
@@ -6857,27 +6868,27 @@ PrefabInstance:
       objectReference: {fileID: 989657841}
     - target: {fileID: 9185767045492517796, guid: bf4f4a4b79ea1a4459565dd2d24d48f0, type: 3}
       propertyPath: gunLevels.Array.data[0].damage
-      value: 25
+      value: 7.5
       objectReference: {fileID: 0}
     - target: {fileID: 9185767045492517796, guid: bf4f4a4b79ea1a4459565dd2d24d48f0, type: 3}
       propertyPath: gunLevels.Array.data[1].damage
-      value: 25
+      value: 7.5
       objectReference: {fileID: 0}
     - target: {fileID: 9185767045492517796, guid: bf4f4a4b79ea1a4459565dd2d24d48f0, type: 3}
       propertyPath: gunLevels.Array.data[2].damage
-      value: 25
+      value: 7.5
       objectReference: {fileID: 0}
     - target: {fileID: 9185767045492517796, guid: bf4f4a4b79ea1a4459565dd2d24d48f0, type: 3}
       propertyPath: gunLevels.Array.data[0].fireRate
-      value: 6
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 9185767045492517796, guid: bf4f4a4b79ea1a4459565dd2d24d48f0, type: 3}
       propertyPath: gunLevels.Array.data[1].fireRate
-      value: 9
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 9185767045492517796, guid: bf4f4a4b79ea1a4459565dd2d24d48f0, type: 3}
       propertyPath: gunLevels.Array.data[2].fireRate
-      value: 12
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 9185767045492517796, guid: bf4f4a4b79ea1a4459565dd2d24d48f0, type: 3}
       propertyPath: gunLevels.Array.data[0].bulletForce
@@ -6924,24 +6935,28 @@ PrefabInstance:
     m_TransformParent: {fileID: 868605106}
     m_Modifications:
     - target: {fileID: 2481657970384920782, guid: 3b5bfbfa8f87d2244834188ae2b5ab95, type: 3}
+      propertyPath: gunRange
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 2481657970384920782, guid: 3b5bfbfa8f87d2244834188ae2b5ab95, type: 3}
       propertyPath: gunLevels.Array.size
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2481657970384920782, guid: 3b5bfbfa8f87d2244834188ae2b5ab95, type: 3}
       propertyPath: gunLevels.Array.data[0].damage
-      value: 25
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2481657970384920782, guid: 3b5bfbfa8f87d2244834188ae2b5ab95, type: 3}
       propertyPath: gunLevels.Array.data[1].damage
-      value: 25
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2481657970384920782, guid: 3b5bfbfa8f87d2244834188ae2b5ab95, type: 3}
       propertyPath: gunLevels.Array.data[2].damage
-      value: 25
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2481657970384920782, guid: 3b5bfbfa8f87d2244834188ae2b5ab95, type: 3}
       propertyPath: gunLevels.Array.data[0].fireRate
-      value: 1
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 2481657970384920782, guid: 3b5bfbfa8f87d2244834188ae2b5ab95, type: 3}
       propertyPath: gunLevels.Array.data[1].fireRate
@@ -6953,15 +6968,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2481657970384920782, guid: 3b5bfbfa8f87d2244834188ae2b5ab95, type: 3}
       propertyPath: gunLevels.Array.data[0].bulletForce
-      value: 250
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 2481657970384920782, guid: 3b5bfbfa8f87d2244834188ae2b5ab95, type: 3}
       propertyPath: gunLevels.Array.data[1].bulletForce
-      value: 250
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 2481657970384920782, guid: 3b5bfbfa8f87d2244834188ae2b5ab95, type: 3}
       propertyPath: gunLevels.Array.data[2].bulletForce
-      value: 250
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 2580238866648389182, guid: 3b5bfbfa8f87d2244834188ae2b5ab95, type: 3}
       propertyPath: m_LocalPosition.x

@@ -11,6 +11,6 @@ public class EnemyHealthBar : MonoBehaviour
     }
     void Update()
     {
-        slider.value = enemyAI.health / 100f;
+        slider.value = enemyAI.Health / 100f;
     }
 }
