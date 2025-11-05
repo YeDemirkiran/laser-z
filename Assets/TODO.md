@@ -7,13 +7,13 @@
 - [ ] Mobil kontroller düzeltilecek
 
 ### Level Kuralları
-- [ ] Zombiler gittikçe çoğalacak
-- [ ] Level hızı sabit
-- [ ] Silah akışı
-	- [ ] 1 - Tabanca (2.5dk)
-	- [ ] 2- Minigun (2.5dk - 3dk)
-	- [ ] 3 - Shotgun (2.5dk)
-	- [ ] 4 - Lazer (3dk)
+- [ ] Zombiler gittikçe çoğalacak (logaritmik)
+- [x] Level hızı sabit
+- [x] Silah akışı
+	- [x] 1 - Tabanca (2.5dk)
+	- [x] 2- Minigun (2.5dk - 3dk)
+	- [x] 3 - Shotgun (2.5dk)
+	- [x] 4 - Lazer (3dk)
 	- [ ] 5 - Karışık
 - [x] Zombi öldürünce skor gelecek
 - [x] Gun ve Upgrade Collectable sıralı olacak
@@ -23,6 +23,10 @@
 - [ ] Karakterin canı azken elektrik efekti
 - [ ] Karakter ölümde patlama animasyonu
 - [ ] Karakter yürüme animasyonu
+- [ ] Collectable cam kırılma animasyonu
+- [ ] Collectable patlama animasyonu
+- [ ] Düşman vurunca hitmark
+- [ ] Silah lazerinin normalde başka renk, hedefe değince kırmızı olması
 
 ## Ayarlar
 - [ ] Ses açma/kapama

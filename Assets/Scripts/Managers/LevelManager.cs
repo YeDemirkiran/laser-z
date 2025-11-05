@@ -43,6 +43,8 @@ public class LevelManager : MonoBehaviour
 
     int currentGunIndex = 0;
 
+    int spawnNonHealthCollectable = 2;
+
     private void Awake()
     {
         if (Instance != null)
@@ -86,29 +88,46 @@ public class LevelManager : MonoBehaviour
     {
         if (collectableSpawnTimer > collectableSpawnRate)
         {
-            int decision = Random.Range(0, 3);
+            GameObject collectable = null;
             float lerp = (levelSpeed - startingSpeed) / (maxSpeed - startingSpeed);
 
-            for (int i = 0; i <= decision; i++)
+            if (spawnNonHealthCollectable <= 0)
             {
-                GameObject collectable = null;
+                for (int i = 0; i <= 2; i++)
+                {
+                    if (i == 0 || i == 2)
+                    {
+                        collectable = SpawnHealthCollectable(lerp);
+                    }
+                    else if (i == 1)
+                    {
+                        if (!currentGunMaxLevel)
+                            collectable = SpawnUpgradeCollectable(lerp);
+                        else
+                            collectable = SpawnGunCollectable(lerp);
+                    }
 
-                if (i == 0 || i == 2)
+                    collectable.transform.position = lines[i].position;
+                    collectable.transform.SetParent(collectablesParent);
+                    Destroy(collectable, 15f);
+                }
+                spawnNonHealthCollectable = 2;
+            }
+            else
+            {
+                int random = Random.Range(0, 3);
+
+                for (int i = 0; i <= random; i++)
                 {
                     collectable = SpawnHealthCollectable(lerp);
+                    collectable.transform.position = lines[i].position;
+                    collectable.transform.SetParent(collectablesParent);
+                    Destroy(collectable, 15f);
                 }
-                else if (i == 1)
-                {
-                    if (!currentGunMaxLevel)
-                        collectable = SpawnUpgradeCollectable(lerp);
-                    else
-                        collectable = SpawnGunCollectable(lerp);
-                }
-                Destroy(collectable, 15f);
-                collectable.transform.position = lines[i].position;
-                collectable.transform.SetParent(collectablesParent);
-                collectableSpawnTimer = 0f;
-            }       
+
+                spawnNonHealthCollectable--;
+            }  
+            collectableSpawnTimer = 0f;
         }
         else
         {
