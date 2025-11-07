@@ -1,5 +1,5 @@
 using UnityEngine;
-using static Bullet;
+using UnityEngine.Audio;
 
 public class GunController : MonoBehaviour
 {
@@ -28,6 +28,10 @@ public class GunController : MonoBehaviour
     [Header("Extra: Shotgun Properties")]
     [SerializeField] int bulletAmount;
     [SerializeField] float bulletSpread;
+
+    [Header("Sound")]
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioResource randomAudioContainer;
 
     private float timer = 0f;
 
@@ -119,6 +123,9 @@ public class GunController : MonoBehaviour
             bulletComponent.Damage = currentGunStat.damage;
 
             Destroy(bullet, 10f);
+
+            // Play sound
+            audioSource.Play();
         }
     }
 

@@ -2415,7 +2415,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 264467a996181894791e2049e218fec8, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.325
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -6640,9 +6640,17 @@ PrefabInstance:
       value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 2646341758631430628, guid: 4e0ff53aedc29054f974cf1eda06733a, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 664674006164443463}
+    - target: {fileID: 2646341758631430628, guid: 4e0ff53aedc29054f974cf1eda06733a, type: 3}
       propertyPath: gunLevels.Array.size
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2646341758631430628, guid: 4e0ff53aedc29054f974cf1eda06733a, type: 3}
+      propertyPath: randomAudioContainer
+      value: 
+      objectReference: {fileID: 6418180475301049370, guid: f271e4c5d85bf604db2d297d966207c3, type: 2}
     - target: {fileID: 2646341758631430628, guid: 4e0ff53aedc29054f974cf1eda06733a, type: 3}
       propertyPath: gunLevels.Array.data[0].damage
       value: 25
@@ -6690,8 +6698,113 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4789340454750721587, guid: 4e0ff53aedc29054f974cf1eda06733a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 664674006164443463}
   m_SourcePrefab: {fileID: 100100000, guid: 4e0ff53aedc29054f974cf1eda06733a, type: 3}
+--- !u!1 &664674006164443462 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4789340454750721587, guid: 4e0ff53aedc29054f974cf1eda06733a, type: 3}
+  m_PrefabInstance: {fileID: 664674006164443461}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &664674006164443463
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 664674006164443462}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 7637447423103600572, guid: 03a79ed2b112edb419021703b44995b5, type: 2}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 6418180475301049370, guid: f271e4c5d85bf604db2d297d966207c3, type: 2}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 10
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &5918154951375784700
 PrefabInstance:
   m_ObjectHideFlags: 0
