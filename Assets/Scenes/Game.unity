@@ -701,7 +701,7 @@ Transform:
   m_GameObject: {fileID: 355665700}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071062, y: -0, z: -0, w: 0.7071075}
-  m_LocalPosition: {x: -0.3, y: 0.5200005, z: 0}
+  m_LocalPosition: {x: -0.097, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2462,7 +2462,7 @@ Transform:
   m_GameObject: {fileID: 989657840}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071062, y: -0, z: -0, w: 0.7071075}
-  m_LocalPosition: {x: 0, y: 0.52, z: 0.3}
+  m_LocalPosition: {x: 0, y: 0, z: 0.088}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3466,7 +3466,7 @@ Transform:
   m_GameObject: {fileID: 1232614787}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071062, y: -0, z: -0, w: 0.7071075}
-  m_LocalPosition: {x: 0.3, y: 0.5200005, z: 0}
+  m_LocalPosition: {x: 0.09, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4445,7 +4445,7 @@ MonoBehaviour:
   gunCollectable: {fileID: 6664337989057018485, guid: 571b96f8cd0ec9641a414d534775f9c3, type: 3}
   groundRenderer: {fileID: 693293497}
   zombieSpawnRate: 3
-  maxZombieSpawnRate: 1
+  maxZombieSpawnRate: 1.5
   zombieSpawnRateChanger: 0.03
   collectableSpawnRate: 9
   startingSpeed: 10
@@ -5530,7 +5530,7 @@ Transform:
   m_GameObject: {fileID: 1881529714}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071062, y: -0, z: -0, w: 0.7071075}
-  m_LocalPosition: {x: 0, y: 0.52, z: -0.3}
+  m_LocalPosition: {x: 0, y: -0, z: -0.099}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6603,6 +6603,18 @@ PrefabInstance:
     - target: {fileID: 466906864807714184, guid: bf4f4a4b79ea1a4459565dd2d24d48f0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6649355140499122169, guid: bf4f4a4b79ea1a4459565dd2d24d48f0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.069
+      objectReference: {fileID: 0}
+    - target: {fileID: 6649355140499122169, guid: bf4f4a4b79ea1a4459565dd2d24d48f0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 6649355140499122169, guid: bf4f4a4b79ea1a4459565dd2d24d48f0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.197
       objectReference: {fileID: 0}
     - target: {fileID: 7830053083803674051, guid: bf4f4a4b79ea1a4459565dd2d24d48f0, type: 3}
       propertyPath: m_Name
