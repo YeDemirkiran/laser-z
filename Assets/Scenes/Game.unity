@@ -2413,7 +2413,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -79030227059277763, guid: 03a79ed2b112edb419021703b44995b5, type: 2}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 264467a996181894791e2049e218fec8, type: 3}
+  m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0.325
   m_Pitch: 1
@@ -6677,15 +6677,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2646341758631430628, guid: 4e0ff53aedc29054f974cf1eda06733a, type: 3}
       propertyPath: gunLevels.Array.data[0].bulletForce
-      value: 75
+      value: 125
       objectReference: {fileID: 0}
     - target: {fileID: 2646341758631430628, guid: 4e0ff53aedc29054f974cf1eda06733a, type: 3}
       propertyPath: gunLevels.Array.data[1].bulletForce
-      value: 75
+      value: 125
       objectReference: {fileID: 0}
     - target: {fileID: 2646341758631430628, guid: 4e0ff53aedc29054f974cf1eda06733a, type: 3}
       propertyPath: gunLevels.Array.data[2].bulletForce
-      value: 100
+      value: 125
       objectReference: {fileID: 0}
     - target: {fileID: 4789340454750721587, guid: 4e0ff53aedc29054f974cf1eda06733a, type: 3}
       propertyPath: m_Name
@@ -6729,7 +6729,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 10
+  MinDistance: 5
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
