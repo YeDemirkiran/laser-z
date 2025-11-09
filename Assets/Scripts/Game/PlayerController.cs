@@ -25,7 +25,6 @@ public class PlayerController : MonoBehaviour
 
     [Header("Movement")]
     [SerializeField] InputActionReference moveAction;
-    [SerializeField] float steerSpeed = 1f;
 
     float input = 0f;
 
@@ -88,12 +87,15 @@ public class PlayerController : MonoBehaviour
 
     void OnMove(InputAction.CallbackContext context)
     {
+        if (!LevelManager.Instance.IsLevelRunning)
+            return;
         input = context.ReadValue<Vector2>().x;
     }
 
     void Move()
     {
-        //float horizontal = input * steerSpeed * Time.deltaTime;
+        if (!LevelManager.Instance.IsLevelRunning)
+            return;
         float horizontal = input * 0.01f;
         rb.position += Vector3.right * horizontal;
     }
