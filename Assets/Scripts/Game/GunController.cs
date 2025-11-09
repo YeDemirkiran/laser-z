@@ -31,7 +31,6 @@ public class GunController : MonoBehaviour
 
     [Header("Sound")]
     [SerializeField] AudioSource audioSource;
-    [SerializeField] AudioResource randomAudioContainer;
 
     private float timer = 0f;
 
