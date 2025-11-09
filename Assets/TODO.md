@@ -4,7 +4,7 @@
 
 ## Oynanış
 - [ ] Adam akıllı bir level mantığı
-- [ ] Mobil kontroller düzeltilecek
+- [x] Mobil kontroller düzeltilecek
 
 ### Level Kuralları
 - [x] Zombiler gittikçe çoğalacak
@@ -20,7 +20,7 @@
 - [x] Gun ve Upgrade Collectable sıralı olacak
 
 ## Görsel
-- [ ] Silahlara yeni modeller
+- [x] Silahlara yeni modeller
 - [ ] Karakterin canı azken elektrik efekti
 - [ ] Karakter ölümde patlama animasyonu
 - [ ] Karakter yürüme animasyonu
@@ -30,19 +30,19 @@
 - [ ] Silah lazerinin normalde başka renk, hedefe değince kırmızı olması
 
 ## Ayarlar
-- [ ] Ses açma/kapama
-- [ ] Müzik açma/kapama
+- [x] Ses açma/kapama
+- [x] Müzik açma/kapama
 
 ## UI
 - [ ] Giriş ekranı daha iyi kamera açısı
-- [ ] Giriş ekranı güzelleştirme
-- [ ] Giriş ekranı ayarlar menüsü
-- [ ] Yeni font
+- [x] Giriş ekranı güzelleştirme
+- [x] Giriş ekranı ayarlar menüsü
+- [x] Yeni font
 - [ ] Uyumlu renkler
 
 ## Ses Efektleri
 - [ ] Karakter yürüme sesi
-- [ ] Silah sesleri (turret, minigun, shotgun, lazer)
+- [x] Silah sesleri (turret, minigun, shotgun, lazer)
 - [ ] Zombi sesleri
 - [ ] Hasar alma sesi
 - [ ] Zombiyi vurma sesi
@@ -53,16 +53,16 @@
 
 ## Müzik
 - [ ] Ana Menü müziği
-- [ ] Oyun müziği
+- [x] Oyun müziği
 - [ ] Durdurma menüsü müziği
 - [ ] Ölüm müziği
 
 ## Buglar
-- [ ] Karakter ana ekranda hareket edebiliyor
-- [ ] Mobil kontroller kötü
+- [x] Karakter ana ekranda hareket edebiliyor
+- [x] Mobil kontroller kötü
 - [ ] Zombiler ve objeler erken yok oluyor, başka bir destroy yolu bul
 - [ ] Bazen yeni silaha geçmene rağmen yeni silah collectable'ı geliyor 
-- [ ] Oyundan ana menüye dönünce ana skor kaydedilmiyor
+- [x] Oyundan ana menüye dönünce ana skor kaydedilmiyor
 - [ ] Bazen skor 0'a dönüyor
 
 ## Optimizasyon
