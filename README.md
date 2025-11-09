@@ -1,10 +1,7 @@
 # Lazer Z: A mobile hypercasual game
 Lazer Z is a hypercasual mobile game, set in an apocalyptic world full of rotten zombies and other dangerous creatures.
 
-[(Türkçe README için tıklayınız.)]()
-
-## Controls
-Simply swipe left and right on your phone to move your character. It will automaticaly fire at the enemy coming towards you.
+[(Türkçe README için tıklayınız.)](README_TR.md)
 
 ## Gameplay
 ### Objective
@@ -27,7 +24,7 @@ Your score increases over time. Additionally, you get extra score points for eac
 - [Yaşam Ensar Demirkıran](https://www.github.com/YeDemirkiran): Lead Game Programmer
 
 ## Project Status
-Status: Alpha (in development)
+Alpha (in development)
 
 ## Roadmap
 - Integrate ads
